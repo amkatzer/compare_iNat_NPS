@@ -1,0 +1,550 @@
+Park.code,Park.name,Category,Category.sort,Order,Family,Taxon.code,TSN,Taxon.record.status,Scientific.Name,Common.name,Synonyms,Occurrence
+WEFA,Weir Farm National Historic Site,Mammal,1,Artiodactyla,Cervidae,95046,180699,Active,Odocoileus virginianus,white-tailed deer,,Present
+WEFA,Weir Farm National Historic Site,Mammal,1,Rodentia,Sciuridae,89665,180137,Active,Marmota monax,woodchuck,,Present
+WEFA,Weir Farm National Historic Site,Mammal,1,Rodentia,Sciuridae,89707,180175,Active,Sciurus carolinensis,gray squirrel,,Present
+WEFA,Weir Farm National Historic Site,Mammal,1,Rodentia,Sciuridae,90667,180207,Active,Tamias striatus,eastern chipmunk,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Accipitriformes,Accipitridae,79512,175304,Active,Accipiter striatus,Sharp-shinned Hawk,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Accipitriformes,Accipitridae,79563,175350,Active,Buteo jamaicensis,Red-tailed Hawk,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Accipitriformes,Accipitridae,79572,175359,Active,Buteo lineatus,Red-shouldered Hawk,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Accipitriformes,Accipitridae,79579,175365,Active,Buteo platypterus,Broad-winged Hawk,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Anseriformes,Anatidae,77836,175122,Active,Aix sponsa,Wood Duck,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Anseriformes,Anatidae,76625,174999,Active,Branta canadensis,Canada Goose,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Apodiformes,Apodidae,83046,178001,Active,Chaetura pelagica,Chimney Swift,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Apodiformes,Trochilidae,83884,178032,Active,Archilochus colubris,Ruby-throated Hummingbird,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Caprimulgiformes,Caprimulgidae,83019,177979,Active,Chordeiles minor,common nighthawk,,Probably Present
+WEFA,Weir Farm National Historic Site,Bird,2,Charadriiformes,Scolopacidae,79181,176576,Active,Philohela minor,,,Probably Present
+WEFA,Weir Farm National Historic Site,Bird,2,Coraciiformes,Alcedinidae,83980,178119,Active,Ceryle alcyon,Belted Kingfisher,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Cuculiformes,Cuculidae,89102,177831,Active,Coccyzus americanus,Yellow-billed Cuckoo,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Galliformes,Phasianidae,86451,176136,Active,Meleagris gallopavo,Wild Turkey,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Bombycillidae,88296,178532,Active,Bombycilla cedrorum,Cedar Waxwing,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Cardinalidae,88071,179883,Active,Piranga olivacea,Scarlet Tanager,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Certhiidae,90967,178803,Active,Certhia americana,Brown Creeper,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Emberizidae,83846,179314,Active,Passerculus sandwichensis,Savannah Sparrow,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Emberizidae,84781,179435,Active,Spizella passerina,Chipping Sparrow,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Fringillidae,95286,179236,Active,Carduelis tristis,American Goldfinch,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Fringillidae,94302,179191,Active,Carpodacus mexicanus,House Finch,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Hirundinidae,87409,178448,Active,Hirundo rustica,barn swallow,,Probably Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Hirundinidae,87394,178434,Active,Iridoprocne bicolor,,,Probably Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Icteridae,93613,179045,Active,Agelaius phoeniceus,Red-winged Blackbird,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Icteridae,93655,179083,Active,Icterus galbula,Baltimore Oriole,,
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Mimidae,88394,178620,Active,Mimus polyglottos,Northern Mockingbird,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Parulidae,92645,178888,Active,Dendroica caerulescens,Black-throated Blue Warbler,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Parulidae,92643,178886,Active,Dendroica magnolia,Magnolia Warbler,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Parulidae,92675,178914,Active,Dendroica pinus,Pine Warbler,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Parulidae,92708,178944,Active,Geothlypis trichas,common yellowthroat,,Probably Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Parulidae,91012,178844,Active,Mniotilta varia,black-and-white warbler,,Probably Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Parulidae,92698,178935,Active,Seiurus motacilla,Louisiana Waterthrush,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Parulidae,92694,178931,Active,Seiurus noveboracensis,Northern Waterthrush,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Parulidae,91022,178853,Active,Vermivora pinus,blue-winged warbler,,Probably Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Parulidae,92740,178973,Active,Wilsonia pusilla,Wilson's Warbler,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Passeridae,86194,179628,Active,Passer domesticus,House Sparrow,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Sturnidae,86204,179637,Active,Sturnus vulgaris,Common Starling,,
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Turdidae,87156,179777,Active,Hylocichla mustelina,Wood Thrush,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Tyrannidae,85846,178359,Active,Contopus virens,Eastern Wood Pewee,,
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Tyrannidae,85830,178344,Active,Empidonax minimus,Least Flycatcher,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Tyrannidae,85791,178309,Active,Myiarchus crinitus,Great Crested Flycatcher,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Tyrannidae,85757,178279,Active,Tyrannus tyrannus,Eastern Kingbird,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Vireonidae,93573,179009,Active,Vireo flavifrons,Yellow-throated Vireo,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Vireonidae,93552,178991,Active,Vireo griseus,White-eyed Vireo,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Vireonidae,93587,179021,Active,Vireo olivaceus,Red-eyed Vireo,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Passeriformes,Vireonidae,93575,179010,Active,Vireo solitarius,Blue-headed Vireo,,
+WEFA,Weir Farm National Historic Site,Bird,2,Piciformes,Picidae,84901,178227,Active,Dendrocopos pubescens,,,Probably Present
+WEFA,Weir Farm National Historic Site,Bird,2,Piciformes,Picidae,84833,178166,Active,Dryocopus pileatus,Pileated Woodpecker,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Piciformes,Picidae,84865,178195,Active,Melanerpes carolinus,Red-bellied Woodpecker,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Piciformes,Picidae,84936,178259,Active,Picoides pubescens,Downy Woodpecker,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Piciformes,Picidae,85739,178262,Active,Picoides villosus,Hairy Woodpecker,,Present
+WEFA,Weir Farm National Historic Site,Bird,2,Strigiformes,Tytonidae,80736,177851,Active,Tyto alba,Barn Owl,,
+WEFA,Weir Farm National Historic Site,Reptile,3,Squamata,Colubridae,122016,209171,Active,Diadophis punctatus edwardsii,Northern Ringneck Snake,,Present
+WEFA,Weir Farm National Historic Site,Reptile,3,Squamata,Colubridae,79825,174253,Active,Nerodia sipedon sipedon,Northern Water Snake,,Present
+WEFA,Weir Farm National Historic Site,Reptile,3,Squamata,Colubridae,79025,174136,Active,Thamnophis sirtalis,common garter snake,,Present
+WEFA,Weir Farm National Historic Site,Reptile,3,Squamata,Colubridae,79026,174137,Active,Thamnophis sirtalis sirtalis,Common Garter Snake,,Present
+WEFA,Weir Farm National Historic Site,Reptile,3,Testudines,Chelydridae,76857,173753,Active,Chelydra serpentina serpentina,Common Snapping Turtle,,Present
+WEFA,Weir Farm National Historic Site,Reptile,3,Testudines,Emydidae,76890,173783,Active,Chrysemys picta,Eastern Painted Turtle,,
+WEFA,Weir Farm National Historic Site,Reptile,3,Testudines,Emydidae,76877,173771,Active,Clemmys guttata,Spotted Turtle,,Present
+WEFA,Weir Farm National Historic Site,Reptile,3,Testudines,Emydidae,76883,173777,Active,Terrapene carolina carolina,Eastern Box Turtle,,
+WEFA,Weir Farm National Historic Site,Amphibian,4,Anura,Bufonidae,83318,173478,Active,Bufo fowleri,Fowler's Toad,,Present
+WEFA,Weir Farm National Historic Site,Amphibian,4,Anura,Hylidae,74972,173503,Active,Hyla versicolor,Gray Treefrog,,Present
+WEFA,Weir Farm National Historic Site,Amphibian,4,Anura,Hylidae,118889,207303,Active,Pseudacris crucifer,Spring Peeper,,Present
+WEFA,Weir Farm National Historic Site,Amphibian,4,Anura,Ranidae,83278,173441,Active,Rana catesbeiana,American Bullfrog,,
+WEFA,Weir Farm National Historic Site,Amphibian,4,Anura,Ranidae,83275,173439,Active,Rana clamitans melanota,Green Frog,,
+WEFA,Weir Farm National Historic Site,Amphibian,4,Anura,Ranidae,83271,173435,Active,Rana palustris,Pickerel Frog,,Present
+WEFA,Weir Farm National Historic Site,Amphibian,4,Anura,Ranidae,83277,173440,Active,Rana sylvatica,Wood Frog,,Present
+WEFA,Weir Farm National Historic Site,Amphibian,4,Caudata,Ambystomatidae,75872,173590,Active,Ambystoma maculatum,Spotted Salamander,,Present
+WEFA,Weir Farm National Historic Site,Amphibian,4,Caudata,Ambystomatidae,75873,173591,Active,Ambystoma opacum,Marbled Salamander,,Present
+WEFA,Weir Farm National Historic Site,Amphibian,4,Caudata,Plethodontidae,76781,173685,Active,Eurycea bislineata,Northern Two-lined Salamander,,
+WEFA,Weir Farm National Historic Site,Amphibian,4,Caudata,Plethodontidae,75937,173649,Active,Plethodon cinereus,Eastern Red-backed Salamander,,
+WEFA,Weir Farm National Historic Site,Amphibian,4,Caudata,Salamandridae,75901,173616,Active,Notophthalmus viridescens viridescens,Red-spotted Newt,,Present
+WEFA,Weir Farm National Historic Site,Fish,5,Anguilliformes,Anguillidae,65066,161127,Active,Anguilla rostrata,American eel,,Present
+WEFA,Weir Farm National Historic Site,Fish,5,Perciformes,Centrarchidae,72238,168144,Active,Lepomis gibbosus,kiver,,
+WEFA,Weir Farm National Historic Site,Fish,5,Perciformes,Centrarchidae,72256,168160,Active,Micropterus salmoides,largemouth bass,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Acorales,Acoraceae,148572,42523,Active,Acorus calamus,calamus,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Alismatales,Alismataceae,140776,38894,Active,Alisma plantago-aquatica,American waterplantain,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Alismatales,Alismataceae,86272,182441,Active,Alisma triviale,northern water plantain,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Alismatales,Araceae,90858,185357,Active,Arisaema atrorubens,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Alismatales,Araceae,148574,42525,Active,Arisaema triphyllum,Jack in the pulpit,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Alismatales,Araceae,148597,42546,Active,Calla palustris,water arum,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Alismatales,Araceae,149495,42590,Active,Lemna minor,common duckweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Alismatales,Araceae,148588,42538,Active,Symplocarpus foetidus,skunk cabbage,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Alismatales,Hydrocharitaceae,155305,502246,Active,Elodea nuttallii,western waterweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Alismatales,Potamogetonaceae,141591,39027,Active,Potamogeton epihydrus,ribbonleaf pondweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Alismatales,Potamogetonaceae,141599,39034,Active,Potamogeton hillii,Hill's pondweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Apiales,Apiaceae,133413,29477,Active,Daucus carota,Queen Anne's lace,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Apiales,Apiaceae,126425,29850,Active,Sanicula canadensis,Canadian blacksnakeroot,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Apiales,Apiaceae,126431,29856,Active,Sanicula marilandica,Maryland sanicle,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Apiales,Apiaceae,128085,29906,Active,Zizia aurea,golden zizia,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Apiales,Araliaceae,132504,29376,Active,Aralia nudicaulis,wild sarsaparilla,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Apiales,Araliaceae,133460,29519,Active,Hydrocotyle americana,American marshpennywort,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Apiales,Araliaceae,132532,29400,Active,Panax trifolius,dwarf ginseng,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Aquifoliales,Aquifoliaceae,156675,503156,Active,Ilex crenata,Japanese holly,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Aquifoliales,Aquifoliaceae,131955,27985,Active,Ilex verticillata,common winterberry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asparagales,Amaryllidaceae,149586,42672,Active,Allium tricoccum,wild leek,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asparagales,Asparagaceae,140583,42784,Active,Asparagus officinalis,garden asparagus,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asparagales,Asparagaceae,141655,42909,Active,Convallaria majalis,European lily of the valley,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asparagales,Asparagaceae,157783,503653,Active,Maianthemum canadense,Canada beadruby,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asparagales,Asparagaceae,141764,43007,Active,Polygonatum pubescens,hairy Solomon's seal,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asparagales,Hypoxidaceae,156654,503146,Active,Hypoxis hirsuta,common goldstar,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asparagales,Iridaceae,144289,43196,Active,Iris versicolor,harlequin blueflag,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asparagales,Iridaceae,144339,43240,Active,Sisyrinchium angustifolium,narrowleaf blueeyed grass,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asparagales,Orchidaceae,147967,43534,Active,Cypripedium acaule,pink lady's slipper,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asparagales,Orchidaceae,148033,43594,Active,Goodyera pubescens,downy rattlesnake plantain,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asparagales,Orchidaceae,149589,43615,Active,Isotria verticillata,purple fiveleaf orchid,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asparagales,Xanthorrhoeaceae,141693,42943,Active,Hemerocallis fulva,orange daylily,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,133556,35423,Active,Achillea millefolium,common yarrow,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,207757,526856,Active,Achillea millefolium var. occidentalis,western yarrow,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,141407,36496,Active,Ambrosia artemisiifolia,annual ragweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,135780,36745,Active,Antennaria neglecta,field pussytoes,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,133758,36717,Active,Antennaria plantaginifolia,woman's tobacco,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,141463,36546,Active,Arctium minus,lesser burrdock,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,133647,35505,Active,Artemisia vulgaris,common wormwood,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,134196,35521,Active,Aster acuminatus,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,134236,35558,Active,Aster divaricatus,white wood aster,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,102171,193335,Active,Aster lanceolatus,white panicle aster,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,134288,35604,Active,Aster linariifolius,flaxleaf aster,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,134310,35624,Active,Aster patens,late purple aster,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,134682,35719,Active,Bidens discoidea,small beggarticks,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,134669,35707,Active,Bidens frondosa,devil's beggartick,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,134674,35711,Active,Bidens laevis,smooth beggartick,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,134671,35709,Active,Bidens tripartita,threelobe beggarticks,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,136829,36968,Active,Centaurea nigra,lesser knapweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,140109,36405,Active,Cirsium pumilum,pasture thistle,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,169405,505920,Active,Erechtites hieracifolia,burnweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,135978,35804,Active,Erigeron annuus,eastern daisy fleabane,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,110150,196266,Active,Erigeron canadensis,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,135983,35809,Active,Erigeron philadelphicus,Philadelphia fleabane,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,135982,35808,Active,Erigeron pulchellus,robin's plantain,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,158042,502508,Active,Eupatorium dubium,coastalplain joepyeweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,211110,528115,Active,Eupatorium maculatum var. maculatum,spotted joepyeweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,136976,35980,Active,Eupatorium perfoliatum,common boneset,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,211116,528118,Active,Eupatorium purpureum var. purpureum,sweetscented joepyeweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,140446,37352,Active,Euthamia graminifolia,flattop goldentop,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,140516,37415,Active,Galinsoga quadriradiata,shaggysoldier,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,142226,36636,Active,Helianthus divaricatus,woodland sunflower,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,142162,37697,Active,Hieracium aurantiacum,orange hawkweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,161162,503009,Active,Hieracium caespitosum,meadow hawkweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,143008,37718,Active,Hieracium paniculatum,Allegheny hawkweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,143011,37720,Active,Hieracium pilosella,mouseear hawkweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,211316,528479,Active,Hieracium scabrum var. scabrum,rough hawkweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,143026,37734,Active,Hieracium venosum,rattlesnakeweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,143111,37810,Active,Krigia biflora,twoflower dwarfdandelion,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,142182,36597,Active,Lactuca biennis,tall blue lettuce,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,142184,36599,Active,Lactuca floridana,woodland lettuce,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,143758,37903,Active,Leucanthemum vulgare,oxeyedaisy,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,137443,36043,Active,Mikania scandens,climbing hempvine,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,136361,38270,Active,Prenanthes alba,white rattlesnakeroot,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,137496,36091,Active,Senecio aureus,golden ragwort,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,138513,36168,Active,Senecio pauperculus,balsam groundsel,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,139388,36234,Active,Solidago bicolor,white goldenrod,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,139392,36238,Active,Solidago caesia,wreath goldenrod,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,139413,36257,Active,Solidago flexicaulis,zigzag goldenrod,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,139428,36270,Active,Solidago juncea,early goldenrod,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,139440,36281,Active,Solidago nemoralis,Dyersweed goldenrod,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,216631,530467,Active,Solidago odora var. odora,anisescented goldenrod,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,139459,36299,Active,Solidago rugosa,wrinkleleaf goldenrod,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,139463,36301,Active,Solidago rugosa ssp. aspera,wrinkleleaf goldenrod,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,138564,36213,Active,Taraxacum officinale,common dandelion,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,203867,524742,Active,Taraxacum officinale ssp. officinale,wandering dandelion,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Asteraceae,138171,38583,Active,Tussilago farfara,coltsfoot,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Campanulaceae,136193,34505,Active,Lobelia cardinalis,cardinalflower,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Campanulaceae,136214,34524,Active,Lobelia inflata,Indian tobacco,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Asterales,Campanulaceae,136217,34527,Active,Lobelia nuttallii,Nuttall's lobelia,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Boraginales,Boraginaceae,130325,31691,Active,Myosotis laxa,bay forget me not,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Brassicales,Brassicaceae,90453,184483,Active,Alliaria officinalis,Garlic-mustard,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Brassicales,Brassicaceae,90451,184481,Active,Alliaria petiolata,garlic mustard,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Brassicales,Brassicaceae,121256,22695,Active,Arabis glabra,tower rockcress,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Brassicales,Brassicaceae,121308,22741,Active,Barbarea vulgaris,garden yellowrocket,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Brassicales,Brassicaceae,121342,22772,Active,Cardamine pensylvanica,Pennsylvania bittercress,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Brassicales,Brassicaceae,122448,22923,Active,Draba verna,spring whitlowgrass,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Brassicales,Brassicaceae,124552,23138,Active,Hesperis matronalis,dames rocket,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Brassicales,Brassicaceae,215053,528742,Active,Lepidium virginicum var. virginicum,Virginia pepperweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Brassicales,Brassicaceae,125083,23255,Active,Nasturtium officinale,watercress,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Caryophyllales,Amaranthaceae,117716,20592,Active,Chenopodium album,lambsquarters,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Caryophyllales,Caryophyllaceae,109551,19954,Active,Cerastium fontanum,common chickweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Caryophyllales,Caryophyllaceae,110047,20276,Active,Dianthus armeria,Deptford pink,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Caryophyllales,Caryophyllaceae,110069,20278,Active,Dianthus deltoides,maiden pink,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Caryophyllales,Caryophyllaceae,112457,20169,Active,Stellaria media,common chickweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Caryophyllales,Phytolaccaceae,100484,19523,Active,Phytolacca americana,American pokeweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Caryophyllales,Polygonaceae,116974,20849,Active,Polygonum arifolium,halberdleaf tearthumb,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Caryophyllales,Polygonaceae,215083,529778,Active,Polygonum cespitosum var. longisetum,oriental ladysthumb,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Caryophyllales,Polygonaceae,119561,20889,Active,Polygonum cuspidatum,Japanese knotweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Caryophyllales,Polygonaceae,117063,20857,Active,Polygonum hydropiperoides,swamp smartweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Caryophyllales,Polygonaceae,117085,20859,Active,Polygonum hydropiperoides var. hydropiperoides,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Caryophyllales,Polygonaceae,122605,20922,Active,Polygonum robustius,stout smartweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Caryophyllales,Polygonaceae,117934,20863,Active,Polygonum sagittatum,arrowleaf tearthumb,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Caryophyllales,Polygonaceae,215111,529791,Active,Polygonum scandens var. dumetorum,climbing false buckwheat,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Caryophyllales,Polygonaceae,115801,20931,Active,Polygonum virginianum,jumpseed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Caryophyllales,Polygonaceae,115834,20934,Active,Rumex acetosella,common sheep sorrel,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Caryophyllales,Polygonaceae,115867,20937,Active,Rumex crispus,curly dock,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Caryophyllales,Polygonaceae,198664,522713,Active,Tovara virginiana,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Celastrales,Celastraceae,131944,27975,Active,Celastrus orbiculata,Asian bittersweet,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Celastrales,Celastraceae,159012,502576,Active,Euonymus alata,winged spindletree,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Celastrales,Celastraceae,211179,528148,Active,Euonymus atropurpurea var. atropurpurea,eastern wahoo,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ceratophyllales,Ceratophyllaceae,151881,501366,Active,Ceratophyllum echinatum,hornwort,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Commelinales,Commelinaceae,142370,39127,Active,Commelina communis,Asiatic dayflower,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Commelinales,Commelinaceae,142416,39169,Active,Tradescantia ohiensis,bluejacket,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Commelinales,Pontederiaceae,149529,42620,Active,Pontederia cordata,pickerelweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Cornales,Cornaceae,130566,27813,Active,Cornus alternifolia,alternateleaf dogwood,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Cornales,Cornaceae,130549,27799,Active,Cornus amomum,silky dogwood,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Cornales,Cornaceae,130558,27806,Active,Cornus florida,flowering dogwood,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Cornales,Cornaceae,130556,27804,Active,Cornus foemina ssp. racemosa,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Cornales,Cornaceae,155949,501635,Active,Cornus racemosa,gray dogwood,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Cornales,Cornaceae,130571,27818,Active,Cornus stolonifera,red-osier dogwood,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Cornales,Nyssaceae,130575,27821,Active,Nyssa sylvatica,black gum,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Dipsacales,Adoxaceae,131706,35317,Active,Sambucus canadensis,american elder,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Dipsacales,Adoxaceae,130838,35255,Active,Viburnum acerifolium,mapleleaf viburnum,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Dipsacales,Adoxaceae,130833,35250,Active,Viburnum cassinoides,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Dipsacales,Adoxaceae,214151,530803,Active,Viburnum dentatum var. dentatum,southern arrowwood,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Dipsacales,Adoxaceae,214153,530804,Active,Viburnum dentatum var. lucidum,southern arrowwood,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Dipsacales,Adoxaceae,130850,35266,Active,Viburnum lentago,nannyberry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Dipsacales,Adoxaceae,130836,35253,Active,Viburnum prunifolium,blackhaw,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Dipsacales,Adoxaceae,130837,35254,Active,Viburnum recognitum,northern arrow-wood,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Dipsacales,Caprifoliaceae,131667,35282,Active,Lonicera canadensis,American fly honeysuckle,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Dipsacales,Caprifoliaceae,131668,35283,Active,Lonicera japonica,Japanese honeysuckle,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Dipsacales,Caprifoliaceae,131685,35299,Active,Lonicera morrowii,Morrow's honeysuckle,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Equisetales,Equisetaceae,79672,17152,Active,Equisetum arvense,field horsetail,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ericales,Balsaminaceae,130156,29182,Active,Impatiens capensis,jewelweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ericales,Balsaminaceae,130163,29189,Active,Impatiens pallida,pale touchmenot,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ericales,Clethraceae,127175,23455,Active,Clethra alnifolia,coastal sweetpepperbush,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ericales,Ericaceae,120210,23767,Active,Chimaphila maculata,striped prince's pine,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ericales,Ericaceae,119284,23657,Active,Gaultheria procumbens,eastern teaberry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ericales,Ericaceae,119288,23660,Active,Gaylussacia baccata,black huckleberry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ericales,Ericaceae,119306,23677,Active,Kalmia latifolia,mountain laurel,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ericales,Ericaceae,127688,23559,Active,Lyonia ligustrina,maleberry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ericales,Ericaceae,213609,529058,Active,Lyonia ligustrina var. ligustrina,maleberry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ericales,Ericaceae,161418,503871,Active,Monotropa hypopithys,pinesap,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ericales,Ericaceae,120222,23778,Active,Monotropa uniflora,Indianpipe,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ericales,Ericaceae,193217,520051,Active,Rhododendron nudiflorum,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ericales,Ericaceae,119361,23726,Active,Rhododendron periclymenoides,pink azalea,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ericales,Ericaceae,119367,23731,Active,Rhododendron viscosum,swamp azalea,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ericales,Ericaceae,127710,23579,Active,Vaccinium angustifolium,lowbush blueberry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ericales,Ericaceae,127703,23572,Active,Vaccinium atrococcum,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ericales,Ericaceae,127704,23573,Active,Vaccinium corymbosum,highbush blueberry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ericales,Ericaceae,127755,23610,Active,Vaccinium pallidum,Blue Ridge blueberry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ericales,Ericaceae,127762,23617,Active,Vaccinium vacillans,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ericales,Primulaceae,121658,23984,Active,Lysimachia ciliata,fringed loosestrife,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ericales,Primulaceae,121668,23993,Active,Lysimachia nummularia,creeping jenny,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ericales,Primulaceae,121672,23997,Active,Lysimachia quadrifolia,whorled yellow loosestrife,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ericales,Primulaceae,121659,23985,Active,Lysimachia terrestris,earth loosestrife,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ericales,Primulaceae,121735,24053,Active,Trientalis borealis,American starflower,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ericales,Primulaceae,203923,524769,Active,Trientalis borealis ssp. borealis,maystar,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fabales,Fabaceae,93011,182067,Active,Amphicarpaea bracteata,American hogpeanut,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fabales,Fabaceae,121397,25390,Active,Apios americana,apios americana,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fabales,Fabaceae,123842,25791,Active,Desmodium canadense,showy ticktrefoil,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fabales,Fabaceae,123853,25800,Active,Desmodium glutinosum,pointedleaf ticktrefoil,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fabales,Fabaceae,123866,25812,Active,Desmodium nudiflorum,nakedflower ticktrefoil,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fabales,Fabaceae,123869,25815,Active,Desmodium paniculatum,panicledleaf ticktrefoil,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fabales,Fabaceae,209233,527679,Active,Desmodium paniculatum var. paniculatum,panicledleaf ticktrefoil,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fabales,Fabaceae,124636,25903,Active,Lespedeza intermedia,intermediate lespedeza,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fabales,Fabaceae,124648,25914,Active,Lespedeza violacea,violet lespedeza,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fabales,Fabaceae,158887,503721,Active,Medicago lupulina,black medick,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fabales,Fabaceae,163396,504804,Active,Robinia pseudoacacia,black locust,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fabales,Fabaceae,127261,26223,Active,Trifolium aureum,golden clover,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fabales,Fabaceae,127361,26313,Active,Trifolium pratense,red clover,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fabales,Fabaceae,126576,26206,Active,Trifolium repens,white clover,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fabales,Fabaceae,127385,26335,Active,Vicia cracca,bird vetch,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fabales,Fabaceae,204541,524803,Active,Vicia cracca ssp. cracca,bird vetch,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Betulaceae,102751,19475,Active,Alnus rugosa,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Betulaceae,102010,19468,Active,Alnus serrulata,hazel alder,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Betulaceae,102817,19481,Active,Betula alleghaniensis,yellow birch,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Betulaceae,103551,19487,Active,Betula lenta,sweet birch,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Betulaceae,170044,509506,Active,Betula lutea,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Betulaceae,104731,19497,Active,Betula populifolia,gray birch,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Betulaceae,104810,19504,Active,Carpinus caroliniana,American hornbeam,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Betulaceae,88945,184202,Active,Carpinus caroliniana ssp. virginiana,American hornbeam,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Betulaceae,105643,19507,Active,Corylus cornuta,beaked hazelnut,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Betulaceae,212127,527500,Active,Corylus cornuta var. cornuta,beaked hazelnut,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Betulaceae,100503,195247,Active,Ostrya virginiana var. virginiana,Virginia hophornbeam,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Fagaceae,100928,19454,Active,Castanea dentata,american chestnut,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Fagaceae,101944,19462,Active,Fagus grandifolia,american beech,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Fagaceae,98896,19290,Active,Quercus alba,white oak,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Fagaceae,98873,19288,Active,Quercus coccinea,scarlet oak,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Fagaceae,105635,195062,Active,Quercus coccinea var. coccinea,scarlet oak,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Fagaceae,105202,19379,Active,Quercus montana,chestnut oak,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Fagaceae,97861,19281,Active,Quercus palustris,pin oak,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Fagaceae,105630,195058,Active,Quercus prinus,chestnut oak,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Fagaceae,97632,19408,Active,Quercus rubra,northern red oak,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Fagaceae,100850,19447,Active,Quercus velutina,black oak,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Fagaceae,732463,-9747209,Active,Quercus X rubra,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Juglandaceae,106132,19227,Active,Carya cordiformis,bitternut hickory,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Juglandaceae,106177,19231,Active,Carya glabra,pignut hickory,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Juglandaceae,107753,19241,Active,Carya ovalis,red hickory,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Juglandaceae,107775,19243,Active,Carya ovata,carya ovata australis,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Juglandaceae,95353,19247,Active,Carya tomentosa,mockernut hickory,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Juglandaceae,96095,19254,Active,Juglans nigra,black walnut,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Myricaceae,155915,501619,Active,Comptonia peregrina,sweet fern,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Fagales,Myricaceae,96184,19262,Active,Myrica pensylvanica,northern bayberry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Gentianales,Apocynaceae,130899,30156,Active,Apocynum androsaemifolium,spreading dogbane,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Gentianales,Apocynaceae,130900,30157,Active,Apocynum cannabinum,Indianhemp,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Gentianales,Apocynaceae,131871,30310,Active,Asclepias syriaca,common milkweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Gentianales,Apocynaceae,131874,30313,Active,Asclepias tuberosa,butterfly milkweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Gentianales,Apocynaceae,164647,506929,Active,Cynanchum louiseae,Louis' swallowwort,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Gentianales,Apocynaceae,174891,511937,Active,Cynanchum nigrum,black swallowwort,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Gentianales,Apocynaceae,130990,30238,Active,Vinca minor,common periwinkle,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Gentianales,Apocynaceae,200762,523292,Active,Vincetoxicum nigrum,black swallow-wort,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Gentianales,Rubiaceae,137970,34786,Active,Cephalanthus occidentalis,buttonbush,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Gentianales,Rubiaceae,137982,34797,Active,Galium aparine,stickywilly,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Gentianales,Rubiaceae,137983,34798,Active,Galium asprellum,rough bedstraw,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Gentianales,Rubiaceae,137987,34800,Active,Galium circaezans,licorice bedstraw,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Gentianales,Rubiaceae,138752,34891,Active,Galium mollugo,false baby's breath,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Gentianales,Rubiaceae,138799,34933,Active,Galium triflorum,fragrant bedstraw,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Gentianales,Rubiaceae,139713,35038,Active,Houstonia caerulea,azure bluets,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Gentianales,Rubiaceae,139741,35063,Active,Mitchella repens,partridgeberry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Geraniales,Geraniaceae,130073,29107,Active,Geranium maculatum,spotted geranium,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Lamiaceae,135561,32454,Active,Ajuga reptans,common bugle,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Lamiaceae,135568,32460,Active,Blephilia ciliata,downy pagodaplant,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Lamiaceae,154875,501592,Active,Clinopodium vulgare,wild basil,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Lamiaceae,135583,32474,Active,Collinsonia canadensis,richweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Lamiaceae,136461,32543,Active,Lamium purpureum,purple deadnettle,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Lamiaceae,136466,32548,Active,Leonurus cardiaca,common motherwort,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Lamiaceae,203745,524220,Active,Leonurus cardiaca ssp. cardiaca,common motherwort,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Lamiaceae,134021,32261,Active,Lycopus rubellus,taperleaf waterhorehound,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Lamiaceae,134014,32255,Active,Lycopus virginicus,Virginia waterhorehound,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Lamiaceae,134025,32265,Active,Mentha arvensis,wild mint,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Lamiaceae,134944,32381,Active,Prunella vulgaris,common selfheal,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Lamiaceae,137533,32670,Active,Pycnanthemum virginianum,Virginia mountainmint,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Lamiaceae,128695,32765,Active,Scutellaria lateriflora,blue skullcap,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Lamiaceae,108249,196122,Active,Scutellaria lateriflora var. lateriflora,blue skullcap,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Lamiaceae,134925,32364,Active,Trichostema dichotomum,forked bluecurls,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Oleaceae,129682,32931,Active,Fraxinus americana,white ash,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Oleaceae,129697,32945,Active,Fraxinus nigra,black ash,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Oleaceae,129679,32929,Active,Fraxinus pennsylvanica,green ash,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Orobanchaceae,134472,34276,Active,Epifagus virginiana,beechdrops,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Orobanchaceae,183161,514001,Active,Gerardia virginica,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Orobanchaceae,138414,33651,Active,Melampyrum lineare,narrowleaf cowwheat,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Orobanchaceae,136628,33362,Active,Pedicularis canadensis,Canadian lousewort,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Phrymaceae,135684,33234,Active,Mimulus alatus,sharpwing monkeyflower,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Phrymaceae,135685,33235,Active,Mimulus ringens,ringen monkeyflower,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Plantaginaceae,135091,33182,Active,Chelone glabra,white turtlehead,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Plantaginaceae,135664,33216,Active,Linaria vulgaris,butter and eggs,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Plantaginaceae,129351,32874,Active,Plantago lanceolata,narrowleaf plantain,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Plantaginaceae,129365,32887,Active,Plantago major,common plantain,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Plantaginaceae,136680,33409,Active,Veronica agrestis,green field speedwell,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Plantaginaceae,136667,33398,Active,Veronica officinalis,common gypsyweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lamiales,Scrophulariaceae,136663,33394,Active,Verbascum thapsus,common mullein,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Laurales,Lauraceae,88913,18147,Active,Lindera benzoin,northern spicebush,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Laurales,Lauraceae,103594,194908,Active,Lindera benzoin var. benzoin,northern spicebush,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Laurales,Lauraceae,89432,18158,Active,Sassafras albidum,sassafras,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Liliales,Colchicaceae,142832,43110,Active,Uvularia perfoliata,perfoliate bellwort,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Liliales,Colchicaceae,142834,43112,Active,Uvularia sessilifolia,sessileleaf bellwort,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Liliales,Liliaceae,110260,196365,Active,Erythronium americanum,American troutlily,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Liliales,Liliaceae,150351,42733,Active,Lilium canadense ssp. canadense,Canadian lily,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Liliales,Liliaceae,141715,42963,Active,Medeola virginiana,Indian cucumberroot,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Liliales,Melanthiaceae,142787,43070,Active,Trillium erectum,red trillium,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Liliales,Melanthiaceae,139897,42764,Active,Veratrum viride,American false hellebore,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Liliales,Smilacaceae,145270,43342,Active,Smilax glauca,cat greenbrier,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Liliales,Smilacaceae,145285,43356,Active,Smilax herbacea,smooth carrionflower,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Liliales,Smilacaceae,145274,43346,Active,Smilax rotundifolia,roundleaf greenbrier,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lycopodiales,Lycopodiaceae,80103,17024,Active,Lycopodium clavatum,common club moss,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lycopodiales,Lycopodiaceae,80114,17025,Active,Lycopodium complanatum,christmas green,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lycopodiales,Lycopodiaceae,81253,17031,Active,Lycopodium lucidulum,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Lycopodiales,Lycopodiaceae,81264,17032,Active,Lycopodium obscurum,ground pine,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Magnoliales,Magnoliaceae,84120,18086,Active,Liriodendron tulipifera,tulip poplar,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Malpighiales,Hypericaceae,122204,21454,Active,Hypericum perforatum,common St. Johnswort,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Malpighiales,Salicaceae,119661,22463,Active,Populus grandidentata,bigtooth aspen,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Malpighiales,Salicaceae,105864,195773,Active,Populus tremuloides,quaking aspen,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Malpighiales,Salicaceae,119729,22524,Active,Salix discolor,pussy willow,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Malpighiales,Salicaceae,119684,22484,Active,Salix nigra,black willow,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Malpighiales,Violaceae,239717,541701,Active,Viola adunca var. minor,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Malpighiales,Violaceae,126871,22050,Active,Viola blanda,sweet white violet,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Malpighiales,Violaceae,164557,505709,Active,Viola cucullata,marsh blue violet,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Malpighiales,Violaceae,116092,22144,Active,Viola pubescens,downy yellow violet,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Malpighiales,Violaceae,116112,22162,Active,Viola sagittata,arrowleaf violet,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Malvales,Malvaceae,122295,21536,Active,Tilia americana,american basswood,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Malvales,Malvaceae,219962,530690,Active,Tilia americana var. americana,American basswood,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Myrtales,Lythraceae,125215,27079,Active,Lythrum salicaria,purple loosestrife,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Myrtales,Onagraceae,128825,27568,Active,Circaea lutetiana,broadleaf enchanter's nightshade,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Myrtales,Onagraceae,209362,525488,Active,Circaea quadrisulcata ssp. canadensis,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Myrtales,Onagraceae,126706,27336,Active,Ludwigia palustris,marsh seedbox,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Nymphaeales,Cabombaceae,85594,18370,Active,Brasenia schreberi,watershield,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ophioglossales,Ophioglossaceae,81367,17172,Active,Botrychium dissectum var. obliquum,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ophioglossales,Ophioglossaceae,81378,17173,Active,Botrychium virginianum,rattlesnake fern,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Osmundales,Osmundaceae,74520,17219,Active,Osmunda cinnamomea,cinnamon fern,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Osmundales,Osmundaceae,212778,529311,Active,Osmunda cinnamomea var. cinnamomea,cinnamon fern,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Osmundales,Osmundaceae,74532,17220,Active,Osmunda claytoniana,interrupted fern,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Osmundales,Osmundaceae,74509,17218,Active,Osmunda regalis,royal fern,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Osmundales,Osmundaceae,212784,529314,Active,Osmunda regalis var. spectabilis,royal fern,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Oxalidales,Oxalidaceae,128433,29074,Active,Oxalis dillenii,Dillen's oxalis,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Oxalidales,Oxalidaceae,190830,518018,Active,Oxalis europaea,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Oxalidales,Oxalidaceae,130059,29095,Active,Oxalis stricta,common yellow oxalis,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Pinales,Cupressaceae,214018,528646,Active,Juniperus communis var. depressa,common juniper,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Pinales,Cupressaceae,92550,18048,Active,Juniperus virginiana,eastern redcedar,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Pinales,Cupressaceae,102813,194806,Active,Juniperus virginiana var. virginiana,eastern redcedar,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Pinales,Pinaceae,93030,183289,Active,Picea abies,Norway spruce,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Pinales,Pinaceae,93037,183295,Active,Picea glauca,black hills spruce,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Pinales,Pinaceae,93137,183385,Active,Pinus strobus,easter white pine,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Pinales,Pinaceae,93952,183397,Active,Tsuga canadensis,canada hemlock,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Cyperaceae,144430,39379,Active,Carex blanda,eastern woodland sedge,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Cyperaceae,144432,39380,Active,Carex bromoides,bromelike sedge,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Cyperaceae,144437,39385,Active,Carex crinita,fringed sedge,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Cyperaceae,146150,39572,Active,Carex debilis,white edge sedge,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Cyperaceae,146154,39576,Active,Carex digitalis,slender woodland sedge,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Cyperaceae,146204,39620,Active,Carex gracillima,graceful sedge,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Cyperaceae,146223,39638,Active,Carex hirtifolia,pubescent sedge,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Cyperaceae,144458,39403,Active,Carex intumescens,greater bladder sedge,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Cyperaceae,144467,39411,Active,Carex laxiculmis,spreading sedge,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Cyperaceae,211851,527110,Active,Carex laxiflora var. laxiflora,broad looseflower sedge,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Cyperaceae,144469,39413,Active,Carex lupulina,hop sedge,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Cyperaceae,144470,39414,Active,Carex lurida,shallow sedge,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Cyperaceae,137596,39749,Active,Carex pensylvanica,Pennsylvania sedge,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Cyperaceae,144486,39429,Active,Carex rosea,rosy sedge,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Cyperaceae,145309,39434,Active,Carex stipata,owlfruit sedge,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Cyperaceae,145310,39435,Active,Carex stricta,uptight sedge,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Cyperaceae,138259,39867,Active,Carex virescens,ribbed sedge,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Cyperaceae,145318,39442,Active,Carex vulpinoidea,fox sedge,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Cyperaceae,138289,39894,Active,Cyperus odoratus,fragrant flatsedge,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Cyperaceae,140919,40228,Active,Scirpus cyperinus,woolgrass,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Cyperaceae,197067,521183,Active,Scirpus rubrotinctus,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Cyperaceae,140931,40239,Active,Scirpus validus,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Juncaceae,143449,39232,Active,Juncus effusus,common rush,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Juncaceae,229230,537212,Active,Luzula campestris var. multiflora,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Juncaceae,144380,39333,Active,Luzula multiflora,common woodrush,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Poaceae,142937,40462,Active,Andropogon gerardii,big bluestem,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Poaceae,142925,40451,Active,Andropogon scoparius,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Poaceae,140354,41395,Active,Anthoxanthum odoratum,sweet vernalgrass,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Poaceae,140408,41443,Active,Arrhenatherum elatius,tall oatgrass,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Poaceae,141032,41527,Active,Brachyelytrum erectum,bearded shorthusk,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Poaceae,143603,40571,Active,Cenchrus tribuloides,sanddune sandbur,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Poaceae,143616,40583,Active,Cinna arundinacea,sweet woodreed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Poaceae,103360,193446,Active,Dactylis glomerata,orchardgrass,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Poaceae,141959,41642,Active,Danthonia spicata,poverty danthonia,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Poaceae,211912,527841,Active,Echinochloa muricata var. microstachya,rough barnyardgrass,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Poaceae,144545,40681,Active,Elymus virginicus,Virginia wildrye,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Poaceae,156105,502293,Active,Elytrigia repens,creeping quackgrass,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Poaceae,159921,502613,Active,Festuca trachyphylla,hard fescue,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Poaceae,145691,40849,Active,Glyceria melicaria,melic mannagrass,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Poaceae,146274,40883,Active,Hystrix patula,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Poaceae,146277,40886,Active,Leersia oryzoides,rice cutgrass,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Poaceae,146282,40890,Active,Leersia virginica,whitegrass,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Poaceae,146299,40905,Active,Panicum clandestinum,deer-tongue witchgrass,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Poaceae,188543,518258,Active,Panicum dichotomum,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Poaceae,139359,41335,Active,Phalaris arundinacea,reed canarygrass,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Poaceae,147355,41104,Active,Poa alsodes,grove bluegrass,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Poaceae,292239,566071,Active,Poa pratensis ssp. pratensis,Kentucky bluegrass,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Poaceae,207004,525009,Active,Schizachyrium scoparium ssp. scoparium,little bluestem,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Poaceae,139260,41246,Active,Setaria glauca,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Poales,Typhaceae,147654,42320,Active,Sparganium androcladum,branched burreed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Polypodiales,Dennstaedtiaceae,85503,17491,Active,Dennstaedtia punctilobula,eastern hayscented fern,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Polypodiales,Dennstaedtiaceae,74576,17224,Active,Pteridium aquilinum,bracken,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Polypodiales,Dryopteridaceae,154417,502157,Active,Dryopteris carthusiana,spinulose woodfern,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Polypodiales,Dryopteridaceae,79518,17531,Active,Dryopteris cristata,crested woodfern,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Polypodiales,Dryopteridaceae,156041,-502262,Active,Dryopteris cristata X spinulosa,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Polypodiales,Dryopteridaceae,80432,17541,Active,Dryopteris marginalis,marginal woodfern,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Polypodiales,Dryopteridaceae,80498,17547,Active,Dryopteris spinulosa,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Polypodiales,Dryopteridaceae,80311,17675,Active,Polystichum acrostichoides,Christmas fern,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Polypodiales,Dryopteridaceae,215127,529799,Active,Polystichum acrostichoides var. acrostichoides,Christmas fern,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Polypodiales,Onocleaceae,76674,17637,Active,Onoclea sensibilis,sensitive fern,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Polypodiales,Polypodiaceae,76250,17242,Active,Polypodium virginianum,rock polypody,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Polypodiales,Pteridaceae,81036,17311,Active,Adiantum pedatum,maidenhair fern,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Polypodiales,Thelypteridaceae,179040,512562,Active,Dryopteris hexagonoptera,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Polypodiales,Thelypteridaceae,179063,512573,Active,Dryopteris noveboracensis,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Polypodiales,Thelypteridaceae,180047,512595,Active,Dryopteris simulata,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Polypodiales,Thelypteridaceae,76361,17252,Active,Dryopteris thelypteris,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Polypodiales,Thelypteridaceae,77265,17261,Active,Thelypteris noveboracensis,New York fern,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Polypodiales,Thelypteridaceae,76350,17251,Active,Thelypteris palustris,eastern marsh fern,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Polypodiales,Woodsiaceae,79018,17413,Active,Athyrium filix-femina,common ladyfern,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Polypodiales,Woodsiaceae,79743,17418,Active,Athyrium thelypterioides,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Polypodiales,Woodsiaceae,84468,17482,Active,Cystopteris fragilis,brittle bladderfern,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Polypodiales,Woodsiaceae,176594,512357,Active,Diplazium acrostichoides,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Proteales,Platanaceae,100993,19021,Active,Platanus hybrida,London planetree,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ranunculales,Berberidaceae,96537,18835,Active,Berberis thunbergii,Japanese barberry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ranunculales,Berberidaceae,96593,18840,Active,Caulophyllum thalictroides,blue cohosh,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ranunculales,Papaveraceae,153799,501481,Active,Chelidonium majus,greater celandine,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ranunculales,Papaveraceae,99373,19005,Active,Corydalis flavula,yellow fumewort,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ranunculales,Papaveraceae,100216,19010,Active,Corydalis sempervirens,rock harlequin,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ranunculales,Papaveraceae,98274,18990,Active,Sanguinaria canadensis,bloodroot,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ranunculales,Ranunculaceae,95187,18722,Active,Actaea pachypoda,white baneberry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ranunculales,Ranunculaceae,92007,181881,Active,Actaea rubra ssp. rubra,red baneberry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ranunculales,Ranunculaceae,90449,18448,Active,Anemone quinquefolia,nightcaps,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ranunculales,Ranunculaceae,91989,181865,Active,Anemone quinquefolia var. quinquefolia,nightcaps,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ranunculales,Ranunculaceae,96201,18730,Active,Aquilegia canadensis,red columbine,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ranunculales,Ranunculaceae,210592,527037,Active,Caltha palustris var. palustris,yellow marshmarigold,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ranunculales,Ranunculaceae,93925,18716,Active,Clematis virginiana,devil's darning needles,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ranunculales,Ranunculaceae,180966,514659,Active,Hepatica americana,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ranunculales,Ranunculaceae,92438,18559,Active,Ranunculus abortivus,littleleaf buttercup,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ranunculales,Ranunculaceae,95479,18594,Active,Ranunculus bulbosus,St. Anthony's turnip,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ranunculales,Ranunculaceae,104721,194960,Active,Ranunculus hispidus var. nitidus,bristly buttercup,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ranunculales,Ranunculaceae,89133,18641,Active,Ranunculus recurvatus,blisterwort,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ranunculales,Ranunculaceae,295912,566303,Active,Ranunculus recurvatus var. recurvatus,blisterwort,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ranunculales,Ranunculaceae,90518,18659,Active,Thalictrum polygamum,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Ranunculales,Ranunculaceae,91519,18678,Active,Thalictrum pubescens,king of the meadow,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Cannabaceae,102130,19040,Active,Celtis occidentalis,common hackberry,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rhamnaceae,124809,28579,Active,Rhamnus frangula,glossy buckthorn,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,129567,25095,Active,Agrimonia gryposepala,tall hairy agrimony,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,92978,182037,Active,Amelanchier arborea var. arborea,common serviceberry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,129587,25112,Active,Amelanchier canadensis,Canadian serviceberry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,129602,25126,Active,Aronia arbutifolia,red chokeberry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,126261,24639,Active,Fragaria virginiana,Virginia strawberry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,126268,24645,Active,Geum canadense,white avens,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,106569,195814,Active,Geum canadense var. canadense,Canada avens,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,126289,24664,Active,Geum vernum,spring avens,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,126290,24665,Active,Geum virginianum,cream avens,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,126993,24698,Active,Potentilla canadensis,dwarf cinquefoil,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,215156,529812,Active,Potentilla canadensis var. canadensis,Canada dwarf cinquefoil,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,127043,24742,Active,Potentilla recta,sulphur cinquefoil,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,127053,24751,Active,Potentilla simplex,common cinquefoil,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,127074,24770,Active,Prunus avium,sweet cherry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,127067,24764,Active,Prunus serotina,black cherry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,216005,529886,Active,Prunus serotina var. serotina,black cherry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,290980,565436,Active,Prunus subhirtella,winter-flowering cherry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,216024,529895,Active,Prunus virginiana var. virginiana,chokecherry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,127116,24808,Active,Rosa carolina,Carolina rose,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,214751,530107,Active,Rosa carolina var. carolina,Carolina rose,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,127943,24833,Active,Rosa multiflora,multiflora rose,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,127117,24809,Active,Rosa palustris,swamp rose,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,127119,24810,Active,Rosa virginiana,Virginia rose,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,127979,24866,Active,Rubus allegheniensis,Allegheny blackberry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,128041,24921,Active,Rubus flagellaris,northern dewberry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,128866,24943,Active,Rubus hispidus,bristly dewberry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,127966,24854,Active,Rubus occidentalis,black raspberry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,215659,530143,Active,Rubus odoratus var. odoratus,purpleflowering raspberry,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,217687,530512,Active,Spiraea alba var. latifolia,white meadowsweet,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,120399,25336,Active,Spiraea latifolia,,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Rosaceae,120406,25342,Active,Spiraea tomentosa,steeplebush,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Ulmaceae,103023,19049,Active,Ulmus americana,american elm,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Ulmaceae,103035,19050,Active,Ulmus rubra,slippery elm,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Urticaceae,98075,19121,Active,Boehmeria cylindrica,smallspike false nettle,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Urticaceae,98141,19127,Active,Laportea canadensis,Canadian woodnettle,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Urticaceae,98175,19130,Active,Pilea pumila,Canadian clearweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Rosales,Urticaceae,213180,529663,Active,Pilea pumila var. pumila,Canadian clearweed,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Santalales,Santalaceae,203513,523880,Active,Comandra umbellata ssp. umbellata,bastard toadflax,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Sapindales,Anacardiaceae,161906,504754,Active,Rhus copallinum,flameleaf sumac,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Sapindales,Anacardiaceae,126776,28782,Active,Rhus glabra,smooth sumac,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Sapindales,Anacardiaceae,126770,28777,Active,Rhus typhina,staghorn sumac,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Sapindales,Anacardiaceae,126820,28821,Active,Toxicodendron radicans,eastern poison ivy,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Sapindales,Anacardiaceae,203915,524765,Active,Toxicodendron radicans ssp. radicans,eastern poison ivy,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Sapindales,Sapindaceae,126745,28754,Active,Acer pensylvanicum,moosewood,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Sapindales,Sapindaceae,125779,28728,Active,Acer rubrum,red maple,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Sapindales,Sapindaceae,125783,28731,Active,Acer saccharum,sugar maple,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Sapindales,Sapindaceae,125784,28732,Active,Acer saccharum var. saccharum,sugar maple,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Sapindales,Simaroubaceae,126826,28827,Active,Ailanthus altissima,copal tree,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Saxifragales,Crassulaceae,122539,24174,Active,Sedum spectabile,showy stonecrop,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Saxifragales,Hamamelidaceae,102052,19033,Active,Hamamelis virginiana,American witchhazel,,
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Saxifragales,Penthoraceae,160587,504241,Active,Penthorum sedoides,ditch stonecrop,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Saxifragales,Saxifragaceae,122558,24191,Active,Chrysosplenium americanum,American golden saxifrage,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Saxifragales,Saxifragaceae,123484,24303,Active,Saxifraga virginiensis,Alaska saxifrage,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Solanales,Convolvulaceae,208239,527594,Active,Cuscuta gronovii var. gronovii,love dodder,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Solanales,Convolvulaceae,136086,30745,Active,Cuscuta pentagona,fiveangled dodder,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Solanales,Solanaceae,132653,30414,Active,Solanum dulcamara,climbing nightshade,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Solanales,Solanaceae,132690,30448,Active,Solanum nigrum,black nightshade,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Vitales,Vitaceae,124836,28602,Active,Parthenocissus quinquefolia,Virginia creeper,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Vitales,Vitaceae,124841,28607,Active,Vitis aestivalis,summer grape,,Present
+WEFA,Weir Farm National Historic Site,Vascular Plant,6,Vitales,Vitaceae,124842,28608,Active,Vitis labrusca,fox grape,,Present
