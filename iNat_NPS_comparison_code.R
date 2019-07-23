@@ -35,17 +35,8 @@ iNat_data <- get_inat_obs_project("2016-national-parks-bioblitz-lewis-and-clark"
 
 #Create new data frame with only the RG & iconic taxa
 RG_iNat_data <- iNat_data[iNat_data$Quality.grade == "research",]
+
 RG_iNat_data_iconic <- RG_iNat_data[RG_iNat_data$Iconic.taxon.name == "Plantae" | RG_iNat_data$Iconic.taxon.name == "Aves" | RG_iNat_data$Iconic.taxon.name == "Mammalia" | RG_iNat_data$Iconic.taxon.name == "Reptilia" | RG_iNat_data$Iconic.taxon.name == "Amphibia",]
-
-test_tsn <- as.tsn(get_tsn(RG_iNat_data$Scientific.name[1]))
-test_tsn1 <- as.integer(test_tsn[[1]])
-
-RG_iNat_data[,"tsn"] <- c("")
-for(q in 1:length(RG_iNat_data$Scientific.name)){
-  temp_tsn <- as.tsn(get_tsn(RG_iNat_data$Scientific.name[q]))
-  RG_iNat_data$tsn[q] <- as.integer(temp_tsn)
-}
-
 
 #Chop off subspecies names. Genus only names are assigned NA. Returns a vector, not a dataframe
 RG_iNat_data2 <- word(RG_iNat_data_iconic$Scientific.name, start=1, end=2, sep=" ") 
