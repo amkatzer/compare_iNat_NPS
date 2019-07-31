@@ -13,7 +13,7 @@
 #12: Make graph
 
 #1----------------------------------------------------------------------------------------
-setwd("C:/Users/amkat/Desktop/VSFS")
+setwd("C:/Users/amkat/Desktop/VSFS/compare_iNat_NPS/")
 library(rinat)
 library(taxize)
 library(stringr)
@@ -25,7 +25,7 @@ library("rbison")
 #First, import data
 #You must remake the header line in the csv file for this to work. 
 #Completely delete line 1 and make new headers in excel. Save as a csv.
-NPS_data <- read.csv("./LEWI/NPSpecies_Checklist_LEWI_20190516093957.csv", header=T, skipNul = T)
+NPS_data <- read.csv("./NPSpecies_Checklist_LEWI_20190516093957.csv", header=T, skipNul = T)
 #NPS_data2 <- word(NPS_data$Scientific.name, start=1, end=2, sep=" ")
 
 #Get iNaturalist data through an API so we don't have to deal with downloading it
@@ -36,6 +36,7 @@ iNat_data <- get_inat_obs_project("2016-national-parks-bioblitz-lewis-and-clark"
 #Create new data frame with only the RG & iconic taxa
 RG_iNat_data <- iNat_data[iNat_data$Quality.grade == "research",]
 
+#This loop does require some input from the user. There are multiple entries for some species
 RG_iNat_data[,"tsn"] <- c("")
 for(q in 1:length(RG_iNat_data$Scientific.name)){
   temp_tsn <- as.tsn(get_tsn(RG_iNat_data$Scientific.name[q]))
@@ -64,8 +65,8 @@ for (i in 1:length(RG_iNat_data)) {
 }
 
 #4----------------------------------------------------------------------------------------
-#WAY TO DO THIS BY TSN??? Currently none are listed in the NPS species lists
-#May be able to do this by getting tsn for each synonym listed
+#Unable to do this by tsn due to how this is implemented in the species lists. 
+#Will have to do this by the sp
 
 #Use a loop to compare the iNat entries to the NPS synonym entries
 NPS_data3 <- word(NPS_data$Synonyms, start=1, end=2, sep= " ")
@@ -73,14 +74,18 @@ iNat_NPSsynonym_matches <- vector(mode="logical", length=0)
 
 for (i in 1:length(RG_iNat_data2)){
   iNat_NPSsynonym_matches[i] <- RG_iNat_data2[i] %in% NPS_data3
-}
+} 
 
 #5----------------------------------------------------------------------------------------
 #Get synonyms for all of the NPSpecies entries from ITIS
 #This can take a while depending on the number of NPS entries
 
 NPS_itis_synonyms <- vector(length=0)
+for (j in 1:length(NPS_data$TSN)){
+  NPS_itis_synonyms[j] <- synonyms(NPS_data$TSN[j], db='itis', rows = 1)
+} #failing due to negative TSNs
 
+synonyms(175185, db="itis")
 #for (j in 1:length(NPS_data$Scientific.name)){
 #  NPS_itis_synonyms[j] <- synonyms(NPS_data$Scientific.name[j], db='itis', rows = 1) #synonyms function is from the taxize package; rows=1 is taking the first row from every entry. This may not be the best way, but it is the best way to automate
 #}

@@ -13,7 +13,7 @@
 #12: Make graph
 
 #1----------------------------------------------------------------------------------------
-setwd("C:/Users/amkat/Desktop/VSFS")
+setwd("C:/Users/amkat/Desktop/VSFS/compare_iNat_NPS/")
 library(rinat)
 library(taxize)
 library(stringr)
@@ -25,7 +25,7 @@ library("rbison")
 #First, import data
 #You must remake the header line in the csv file for this to work. 
 #Completely delete line 1 and make new headers in excel. Save as a csv.
-NPS_data <- read.csv("./LEWI/NPSpecies_Checklist_LEWI_20190516093957.csv", header=T, skipNul = T)
+NPS_data <- read.csv("./NPSpecies_Checklist_LEWI_20190516093957.csv", header=T, skipNul = T, stringsAsFactors=F)
 NPS_data2 <- word(NPS_data$Scientific.name, start=1, end=2, sep=" ")
 
 #Get iNaturalist data through an API so we don't have to deal with downloading it
@@ -141,32 +141,43 @@ write.csv(table1, "LEWI_table1.csv")
 table2 <- data2[data2$`Match NPSpecies`=="ITIS Match",]
 table2 <- table2[,c(2,1)]
 colnames(table2)[colnames(table2)=="Scientific_name"] <- "iNat_entry"
+table2$iNat_entry <- as.character(table2$iNat_entry)
 table2[,"NPSpecies_name"] <- c("") 
 table2[,"Accepted_TSN"] <- c("")
 table2[,"Accepted_name"] <- c("")
 table2[,"Reference"] <- c("")
 
-tempsynonym <- synonyms(table2$Scientific_name, db="itis")#find iNat synonyms in ITIS
+tempsynonym <- synonyms(table2$iNat_entry, db="itis")#find iNat synonyms in ITIS
+
+#Where the NPS name matches the ITIS accepted name
 tempsyndf <- as.data.frame(tempsynonym[[1]]) #practice code to see if the numbers will pull out the species name. This works.
-tempmatches <- tempsyndf$syn_name %in% table2$Scientific.name
-tempmatches2 <- cbind(tempsyndf$syn_name, tempsyndf$syn_author, tempmatches)
+tempmatches <- tempsyndf$acc_name %in% NPS_data$Scientific.name
+table2$NPSpecies_name[1] <- tempsyndf$acc_name[tempsyndf$acc_name %in% NPS_data$Scientific.name == TRUE]
+table2$Accepted_name[1] <- tempsyndf$acc_name[tempsyndf$acc_name %in% NPS_data$Scientific.name == TRUE]
+table2$Reference[1] <- tempsyndf$acc_author[tempsyndf$acc_name %in% NPS_data$Scientific.name == TRUE]
+table2$Accepted_TSN[1] <- tempsyndf$acc_tsn[tempsyndf$acc_name %in% NPS_data$Scientific.name == TRUE]
+
+#Where the NPS name matches a synonym in ITIS
+tempsyndf <- as.data.frame(tempsynonym[[2]]) #practice code to see if the numbers will pull out the species name. This works.
+tempmatches <- tempsyndf$syn_name %in% NPS_data$Scientific.name
+table2$NPSpecies_name[2] <- tempsyndf$syn_name[tempsyndf$syn_name %in% NPS_data$Scientific.name == TRUE]
+table2$Accepted_name[2] <- tempsyndf$acc_name[tempsyndf$syn_name %in% NPS_data$Scientific.name == TRUE]
+  #info not always avail
+table2$Reference[2] <- tempsyndf$acc_author[tempsyndf$syn_name %in% NPS_data$Scientific.name == TRUE] 
+  #info not always avaiable; only accepted author here. Could try to add the syn author if not avail?
+table2$Accepted_TSN[2] <- tempsyndf$acc_tsn[tempsyndf$syn_name %in% NPS_data$Scientific.name == TRUE]
+  #info not always avail
+
+#Where there is no data entered in for the synonym that matched in NPS & is accepted
+tempsyndf <- as.data.frame(tempsynonym[[3]]) #practice code to see if the numbers will pull out the species name. This works.
+tempmatches <- tempsyndf$syn_name %in% NPS_data$Scientific.name
+  #returns logical (0)
+table2$Accepted_TSN[3] <- tempsyndf$acc_tsn
+table2$Accepted_name[3] <- table2$iNat_entry[3] 
+  #the NPS name is potentilla egedii spp. pacifica
 
 
 
-
-for (k in 1:length(table2$Scientific_name)){
-  tempsyndf <- as.data.frame(tempsynonym[[k]]) #Pull out dataframe from list
-  tempmatches <- tempsyndf$syn_name %in% NPS_data$Scientific.name #compare entries with NPSpecies;problem line??
-  tempmatches2 <- cbind(tempsyndf$syn_name, tempsyndf$syn_author, tempmatches) #Make new df
-  for (m in 1:length(tempmatches2[,1])){
-    if (tempmatches2[m,3] == TRUE) {
-      table2[k, 3] <- c(tempmatches2$syn_name)
-      table2[k,4] <- c(tempmatches2$syn_author)
-    }
-  }
-}
-
-table2
 
 
 
