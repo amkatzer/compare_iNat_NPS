@@ -71,6 +71,7 @@ for (j in 1:length(NPS_data$Scientific.name)){
   NPS_itis_synonyms[j] <- synonyms(NPS_data$Scientific.name[j], db='itis', rows = 1) #synonyms function is from the taxize package; rows=1 is taking the first row from every entry. This may not be the best way, but it is the best way to automate
 }
 
+
 #Take out all of the columns besides the synonym names 
 NPS_itis_synonyms2 <- lapply(NPS_itis_synonyms, function(x) x[(names(x) %in% c("syn_name"))])
 NPS_itis_synonyms3 <- unlist(NPS_itis_synonyms2)
@@ -81,6 +82,29 @@ iNat_itis_synonym_matches <- vector(mode="logical", length=0)
 
 for (i in 1:length(RG_iNat_data2)){
   iNat_itis_synonym_matches[i] <- RG_iNat_data2[i] %in% NPS_itis_synonyms4
+}
+
+#Potential data restructure:
+
+iNat_itis_synonyms <- synonyms(RG_iNat_data2, db="itis", rows=1)
+
+iNat_itis_synonym_matches_test <- vector(mode="logical", length=0)
+
+iNat_itis_synonyms2 <- lapply(iNat_itis_synonyms, function(x) x[(names(x) %in% c("syn_name"))])
+iNat_itis_synonyms3 <- unlist(iNat_itis_synonyms2)
+iNat_itis_synonyms4 <- word(iNat_itis_synonyms3, start=1, end=2, sep=" ")
+
+
+iNat_itis_synonym_matches_test <- match(NPS_data2, iNat_itis_synonyms4)
+tempdfinat_nps <- as.data.frame(cbind(NPS_data2, iNat_itis_synonym_matches_test))
+tempdfinat_nps[,"iNat_entry"] <- c("")
+tempdfinat_nps$NPS_data2 <- as.character(tempdfinat_nps$NPS_data2)
+
+for (m in 1:length(tempdfinat_nps$NPS_data2)){
+  if (is.numeric(tempdfinat_nps$iNat_itis_synonym_matches_test[m])==FALSE){
+    tempdfinat_nps
+  }
+  
 }
 
 
