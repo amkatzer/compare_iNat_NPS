@@ -25,7 +25,7 @@ library("rbison")
 #First, import data
 #You must remake the header line in the csv file for this to work. 
 #Completely delete line 1 and make new headers in excel. Save as a csv.
-NPS_data <- read.csv("./NPSpecies_Checklist_LEWI_20190516093957.csv", header=T, skipNul = T)
+NPS_data <- read.csv("./NPSpecies_Checklist_LEWI_20190516093957.csv", header=T, skipNul = T, stringsAsFactors = F)
 #NPS_data2 <- word(NPS_data$Scientific.name, start=1, end=2, sep=" ")
 
 #Get iNaturalist data through an API so we don't have to deal with downloading it
@@ -41,6 +41,13 @@ RG_iNat_data[,"tsn"] <- c("")
 for(q in 1:length(RG_iNat_data$Scientific.name)){
   temp_tsn <- as.tsn(get_tsn(RG_iNat_data$Scientific.name[q]))
   RG_iNat_data$tsn[q] <- as.integer(temp_tsn)
+}
+
+#NPS species list TSN lookup (because of negative TSNs being recorded in the sheet)
+NPS_data[,"tsn_lookup"] <- c("")
+for(q in 1:length(NPS_data$Scientific.name)){
+  temp_tsn <- as.tsn(get_tsn(NPS_data$Scientific.name[q]))
+  NPS_data$tsn_lookup[q] <- as.integer(temp_tsn)
 }
 
 RG_iNat_data_iconic <- RG_iNat_data[RG_iNat_data$Iconic.taxon.name == "Plantae" 
@@ -61,7 +68,7 @@ RG_iNat_not_iconic <- RG_iNat_data[RG_iNat_data$Iconic.taxon.name != "Plantae"
 iNat_NPS_matches <- vector(mode="logical", length=0)
 
 for (i in 1:length(RG_iNat_data)) {
-  iNat_NPS_matches[i] <- RG_iNat_data$tsn[i] %in% NPS_data$TSN
+  iNat_NPS_matches[i] <- RG_iNat_data$tsn[i] %in% NPS_data$tsn_lookup
 }
 
 #4----------------------------------------------------------------------------------------
