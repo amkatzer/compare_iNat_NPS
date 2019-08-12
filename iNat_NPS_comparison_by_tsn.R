@@ -42,6 +42,7 @@ for(q in 1:length(RG_iNat_data$Scientific.name)){
   temp_tsn <- as.tsn(get_tsn(RG_iNat_data$Scientific.name[q]))
   RG_iNat_data$tsn[q] <- as.integer(temp_tsn)
 }
+RG_iNat_data$tsn <- as.integer(RG_iNat_data$tsn)
 
 #NPS species list TSN lookup (because of negative TSNs being recorded in the sheet)
 NPS_data[,"tsn_lookup"] <- c("")
@@ -49,6 +50,7 @@ for(q in 1:length(NPS_data$Scientific.name)){
   temp_tsn <- as.tsn(get_tsn(NPS_data$Scientific.name[q]))
   NPS_data$tsn_lookup[q] <- as.integer(temp_tsn)
 }
+NPS_data$tsn_lookup <- as.integer(NPS_data$tsn_lookup)
 
 RG_iNat_data_iconic <- RG_iNat_data[RG_iNat_data$Iconic.taxon.name == "Plantae" 
                                     | RG_iNat_data$Iconic.taxon.name == "Aves" 
@@ -68,9 +70,12 @@ RG_iNat_not_iconic <- RG_iNat_data[RG_iNat_data$Iconic.taxon.name != "Plantae"
 iNat_NPS_matches <- vector(mode="logical", length=0)
 
 for (i in 1:length(RG_iNat_data)) {
-  iNat_NPS_matches[i] <- RG_iNat_data$tsn[i] %in% NPS_data$tsn_lookup
+  iNat_NPS_matches[i] <- RG_iNat_data_iconic$tsn[i] %in% NPS_data$tsn_lookup
+#  iNat_NPS_matches[i] <- match(RG_iNat_data_iconic$tsn[i], NPS_data$tsn_lookup, 
+                          #nomatch=FALSE, incomparables=c("NA"))
 }
 
+#data <- cbind(RG_iNat_data_iconic$Scientific.name, RG_iNat_data_iconic$tsn, iNat_NPS_matches)
 #4----------------------------------------------------------------------------------------
 #Unable to do this by tsn due to how this is implemented in the species lists. 
 #Will have to do this by the sp
