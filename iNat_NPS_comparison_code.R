@@ -20,6 +20,7 @@ library(stringr)
 library(tibble)
 library("rbison")
 #devtools::install_github("ropensci/rbison")
+library(tidyr)
 
 #2----------------------------------------------------------------------------------------
 #First, import data
@@ -53,7 +54,7 @@ for (i in 1:length(RG_iNat_data2)){
 }
 
 #4----------------------------------------------------------------------------------------
-#Use a loop to compare the iNat entries to the NPS synonym entries
+#Use a loop to compare the iNat entries to the NPS synonym entries (1st in every entry)
 NPS_data3 <- word(NPS_data$Synonyms, start=1, end=2, sep= " ")
 iNat_NPSsynonym_matches <- vector(mode="logical", length=0)
 
@@ -63,50 +64,35 @@ for (i in 1:length(RG_iNat_data2)){
 
 #5----------------------------------------------------------------------------------------
 #Get synonyms for all of the NPSpecies entries from ITIS
-#This can take a while depending on the number of NPS entries
+#This can take a while depending on the number of NPS entries (sometimes over 2 hours)
 
 NPS_itis_synonyms <- vector(length=0)
 
 for (j in 1:length(NPS_data$Scientific.name)){
   NPS_itis_synonyms[j] <- synonyms(NPS_data$Scientific.name[j], db='itis', rows = 1) #synonyms function is from the taxize package; rows=1 is taking the first row from every entry. This may not be the best way, but it is the best way to automate
 }
+NPS_itis_synonyms <- setNames(NPS_itis_synonyms, NPS_data$Scientific.name)
+NPS_itis_synonyms_df <- enframe(NPS_itis_synonyms) %>% unnest #make the mega list into a df
 
 
-#Take out all of the columns besides the synonym names 
-NPS_itis_synonyms2 <- lapply(NPS_itis_synonyms, function(x) x[(names(x) %in% c("syn_name"))])
-NPS_itis_synonyms3 <- unlist(NPS_itis_synonyms2)
-NPS_itis_synonyms4 <- word(NPS_itis_synonyms3, start=1, end=2, sep=" ")
-
-#Compare the iNat entries to the synonym names
+#use the df of synonyms
 iNat_itis_synonym_matches <- vector(mode="logical", length=0)
-
-for (i in 1:length(RG_iNat_data2)){
-  iNat_itis_synonym_matches[i] <- RG_iNat_data2[i] %in% NPS_itis_synonyms4
+for (i in 1:length(RG_iNat_data2)) {
+  iNat_itis_synonym_matches[i] <- RG_iNat_data2[i] %in% NPS_itis_synonyms_df$syn_name
 }
 
-#Potential data restructure:
+#Old code done by using the list instead of making the list a df
+#Take out all of the columns besides the synonym names 
+#NPS_itis_synonyms2 <- lapply(NPS_itis_synonyms, function(x) x[(names(x) %in% c("syn_name"))])
+#NPS_itis_synonyms3 <- unlist(NPS_itis_synonyms2)
+#NPS_itis_synonyms4 <- word(NPS_itis_synonyms3, start=1, end=2, sep=" ")
 
-iNat_itis_synonyms <- synonyms(RG_iNat_data2, db="itis", rows=1)
+#Compare the iNat entries to the synonym names - in list
+#iNat_itis_synonym_matches <- vector(mode="logical", length=0)
 
-iNat_itis_synonym_matches_test <- vector(mode="logical", length=0)
-
-iNat_itis_synonyms2 <- lapply(iNat_itis_synonyms, function(x) x[(names(x) %in% c("syn_name"))])
-iNat_itis_synonyms3 <- unlist(iNat_itis_synonyms2)
-iNat_itis_synonyms4 <- word(iNat_itis_synonyms3, start=1, end=2, sep=" ")
-
-
-iNat_itis_synonym_matches_test <- match(NPS_data2, iNat_itis_synonyms4)
-tempdfinat_nps <- as.data.frame(cbind(NPS_data2, iNat_itis_synonym_matches_test))
-tempdfinat_nps[,"iNat_entry"] <- c("")
-tempdfinat_nps$NPS_data2 <- as.character(tempdfinat_nps$NPS_data2)
-
-for (m in 1:length(tempdfinat_nps$NPS_data2)){
-  if (is.numeric(tempdfinat_nps$iNat_itis_synonym_matches_test[m])==FALSE){
-    tempdfinat_nps
-  }
-  
-}
-
+#for (i in 1:length(RG_iNat_data2)){
+#  iNat_itis_synonym_matches[i] <- RG_iNat_data2[i] %in% NPS_itis_synonyms4
+#}
 
 #6----------------------------------------------------------------------------------------
 #Make a new dataframe with the raw results
@@ -117,7 +103,7 @@ colnames(data)[2] <- c("Iconic_taxa")
 data <- data[order(data$Iconic_taxa, data$Scientific_name),]
 
 #OUtput the raw data into a csv file. 
-write.csv(data, file="LEWI_data.csv")
+write.csv(data, file="LEWI_data2.csv")
 
 #7----------------------------------------------------------------------------------------
 #For all the tables, need to remove duplicate species entries
@@ -169,42 +155,19 @@ table2$iNat_entry <- as.character(table2$iNat_entry)
 table2[,"NPSpecies_name"] <- c("") 
 table2[,"Accepted_TSN"] <- c("")
 table2[,"Accepted_name"] <- c("")
-table2[,"Reference"] <- c("")
-
-tempsynonym <- synonyms(table2$iNat_entry, db="itis")#find iNat synonyms in ITIS
-
-#Where the NPS name matches the ITIS accepted name
-tempsyndf <- as.data.frame(tempsynonym[[1]]) #practice code to see if the numbers will pull out the species name. This works.
-tempmatches <- tempsyndf$acc_name %in% NPS_data$Scientific.name
-table2$NPSpecies_name[1] <- tempsyndf$acc_name[tempsyndf$acc_name %in% NPS_data$Scientific.name == TRUE]
-table2$Accepted_name[1] <- tempsyndf$acc_name[tempsyndf$acc_name %in% NPS_data$Scientific.name == TRUE]
-table2$Reference[1] <- tempsyndf$acc_author[tempsyndf$acc_name %in% NPS_data$Scientific.name == TRUE]
-table2$Accepted_TSN[1] <- tempsyndf$acc_tsn[tempsyndf$acc_name %in% NPS_data$Scientific.name == TRUE]
-
-#Where the NPS name matches a synonym in ITIS
-tempsyndf <- as.data.frame(tempsynonym[[2]]) #practice code to see if the numbers will pull out the species name. This works.
-tempmatches <- tempsyndf$syn_name %in% NPS_data$Scientific.name
-table2$NPSpecies_name[2] <- tempsyndf$syn_name[tempsyndf$syn_name %in% NPS_data$Scientific.name == TRUE]
-table2$Accepted_name[2] <- tempsyndf$acc_name[tempsyndf$syn_name %in% NPS_data$Scientific.name == TRUE]
-  #info not always avail
-table2$Reference[2] <- tempsyndf$acc_author[tempsyndf$syn_name %in% NPS_data$Scientific.name == TRUE] 
-  #info not always avaiable; only accepted author here. Could try to add the syn author if not avail?
-table2$Accepted_TSN[2] <- tempsyndf$acc_tsn[tempsyndf$syn_name %in% NPS_data$Scientific.name == TRUE]
-  #info not always avail
-
-#Where there is no data entered in for the synonym that matched in NPS & is accepted
-tempsyndf <- as.data.frame(tempsynonym[[3]]) #practice code to see if the numbers will pull out the species name. This works.
-tempmatches <- tempsyndf$syn_name %in% NPS_data$Scientific.name
-  #returns logical (0)
-table2$Accepted_TSN[3] <- tempsyndf$acc_tsn
-table2$Accepted_name[3] <- table2$iNat_entry[3] 
-  #the NPS name is potentilla egedii spp. pacifica
+table2[,"Accepted_Reference"] <- c("")
+table2[,"Synonym_Reference"] <- c("")
 
 
-
-
-
-
+for (i in 1:length(table2$iNat_entry)) {
+  if (table2$iNat_entry[i] %in% NPS_itis_synonyms_df$syn_name == TRUE){
+    table2$NPSpecies_name[i] <- NPS_itis_synonyms_df$name[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
+    table2$Accepted_TSN[i] <- NPS_itis_synonyms_df$acc_tsn[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
+    table2$Accepted_name[i] <- NPS_itis_synonyms_df$acc_name[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
+    table2$Accepted_Reference[i] <- NPS_itis_synonyms_df$acc_author[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
+    table2$Synonym_Reference[i] <- NPS_itis_synonyms_df$syn_author[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
+  }
+}
 
 
 #10----------------------------------------------------------------------------------------
