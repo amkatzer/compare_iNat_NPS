@@ -21,6 +21,7 @@ library(tibble)
 library("rbison")
 #devtools::install_github("ropensci/rbison")
 library(tidyr)
+library(stringr)
 
 #2----------------------------------------------------------------------------------------
 #First, import data
@@ -141,6 +142,12 @@ table1 <- table1[order(table1$Iconic_taxa, table1$Scientific_name),]
 table1 <- unique(table1)
 #The above function is not working correctly. Need to figure out how to get the iconic taxa to be in alphabetical order
 #It isn't a ordered factor either
+
+#Add in the counts for entries (number of entries per species) - currently untested
+table1[, "Entry_Count"] <- c("")
+for (i in 1:length(table1$Scientific_name)){
+  table1$Entry_Count[i] <- str_count(table1$Scientific_name, pattern=table1$Scientific_name[i])
+}
 
 write.csv(table1, "LEWI_table1.csv")
 
