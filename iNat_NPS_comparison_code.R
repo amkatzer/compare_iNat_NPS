@@ -22,7 +22,7 @@ library("rbison")
 #devtools::install_github("ropensci/rbison")
 library(tidyr)
 library(stringr)
-
+library(dplyr)
 #2----------------------------------------------------------------------------------------
 #First, import data
 #You must remake the header line in the csv file for this to work. 
@@ -74,7 +74,7 @@ for (j in 1:length(NPS_data$Scientific.name)){
 }
 NPS_itis_synonyms <- setNames(NPS_itis_synonyms, NPS_data$Scientific.name)
 NPS_itis_synonyms_df <- enframe(NPS_itis_synonyms) %>% unnest #make the mega list into a df
-
+#got a warning message that cols is now required.
 
 #use the df of synonyms
 iNat_itis_synonym_matches <- vector(mode="logical", length=0)
@@ -143,10 +143,18 @@ table1 <- unique(table1)
 #The above function is not working correctly. Need to figure out how to get the iconic taxa to be in alphabetical order
 #It isn't a ordered factor either
 
+
+
 #Add in the counts for entries (number of entries per species) - currently untested
 table1[, "Entry_Count"] <- c("")
+
+
+entry_number <- as.matrix(tapply(data$Scientific_name, data$Scientific_name, length))
+colnames(entry_number) <- c("Scientific.name", "Number")
+
 for (i in 1:length(table1$Scientific_name)){
-  table1$Entry_Count[i] <- str_count(table1$Scientific_name, pattern=table1$Scientific_name[i])
+  if (table1$Scientific_name == entry_number)
+  table1$Entry_Count
 }
 
 write.csv(table1, "LEWI_table1.csv")
@@ -176,6 +184,7 @@ for (i in 1:length(table2$iNat_entry)) {
   }
 }
 
+write.csv(table2, "LEWI_table2.csv")
 
 #10----------------------------------------------------------------------------------------
 #Table 3: All potentially new species
@@ -186,21 +195,13 @@ table3[,"BISON"] <- c("")
 table3[,"iNaturalist.Entry"] <- c("")
 table3[,"Invasive.Record"] <- c("")
 
-#Add in iNaturalist entry
+#Add in iNaturalist entry - work in progress
 for (i in 1:length(table3$Scientific_name)){
-  if (table3[i,"iNaturalist.Entry"]==""){
-    if (RG_iNat_data_iconic == table3[i,"Scientific_name"]){ #This line is the problem. 
-      #Error about the == comparing to an entry (incompatible methods). 
-      #I don't think %in% is right though here.
-    table3[i,"iNaturalist.Entry"] <- c(RG_iNat_data_iconic[i,"Url"])}
-  } 
+  table3$iNaturalist.Entry[i] <- filter(RG_iNat_data$Scientific.name)
 }
 
 
 #Add in Invasive record
-for (i in 1:length(table3$Scientific_name)){
-  
-}
 
 
 #Add in BISON entries. Best to do this last due to the vast amounts of data (list of states) that isn't easily visible in R dataframe.
