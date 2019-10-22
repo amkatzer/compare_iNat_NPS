@@ -24,6 +24,9 @@ library(tidyr)
 library(stringr)
 library(dplyr)
 #2----------------------------------------------------------------------------------------
+#Specify park:
+park <- c("LEWI")
+
 #First, import data
 #You must remake the header line in the csv file for this to work. 
 #Completely delete line 1 and make new headers in excel. Save as a csv.
@@ -76,6 +79,20 @@ NPS_itis_synonyms <- setNames(NPS_itis_synonyms, NPS_data$Scientific.name)
 NPS_itis_synonyms_df <- enframe(NPS_itis_synonyms) %>% unnest #make the mega list into a df
 #got a warning message that cols is now required.
 
+#input table so we do not have to download the synonyms: code from Kelsey Cooper (Indiana State)
+syn_nums <- read.table('synonym_links', sep ="|", header = FALSE, dec =".")
+sci_names <- read.table('taxonomic_units', sep ="|", header = FALSE, dec =".", fill=T)
+sci_names <- sci_names[c('V1','V26')]
+setnames(sci_names, old=c("V1","V26"), new=c("TSN", "Scientific.Name"))
+setnames(syn_nums, old=c("V1","V2", "V3"), new=c("TSN", "SYN.TSN", "Date"))
+NPS_itis_synonyms_df <- merge(syn_nums, sci_names, by='TSN', all.x=T)
+NPS_itis_synonyms_df <- merge(NPS_itis_synonyms_df, sci_names, by.x='SYN.TSN', by.y='TSN', all.x=T)
+NPS_itis_synonyms_df <- NPS_itis_synonyms_df[-3]
+NPS_itis_synonyms_df <- NPS_itis_synonyms_df[,c(1, 4, 2, 3)]
+setnames(NPS_itis_synonyms_df, old=c("SYN.TSN","TSN", "Scientific.Name.x", "Scientific.Name.y"), new=c("TSN", "SYN.TSN", "SYN.Scientific.Name", "Scientific.Name"))
+
+
+
 #use the df of synonyms
 iNat_itis_synonym_matches <- vector(mode="logical", length=0)
 for (i in 1:length(RG_iNat_data2)) {
@@ -104,7 +121,7 @@ colnames(data)[2] <- c("Iconic_taxa")
 data <- data[order(data$Iconic_taxa, data$Scientific_name),]
 
 #OUtput the raw data into a csv file. 
-write.csv(data, file="LEWI_data2.csv")
+write.csv(data, file=paste(park,"_data2.csv", sep=""))
 
 #7----------------------------------------------------------------------------------------
 #For all the tables, need to remove duplicate species entries
@@ -157,7 +174,7 @@ for (i in 1:length(table1$Scientific_name)){
   table1$Entry_Count
 }
 
-write.csv(table1, "LEWI_table1.csv")
+write.csv(table1, paste(park, "_table1.csv", sep=""))
 
 #9----------------------------------------------------------------------------------------
 #Table 2: All Synonym data and what the taxonomic update is (itis only)
@@ -184,7 +201,7 @@ for (i in 1:length(table2$iNat_entry)) {
   }
 }
 
-write.csv(table2, "LEWI_table2.csv")
+write.csv(table2, paste(park,"_table2.csv", sep=""))
 
 #10----------------------------------------------------------------------------------------
 #Table 3: All potentially new species
@@ -199,28 +216,66 @@ table3[,"Invasive.Record"] <- c("")
 for (i in 1:length(table3$Scientific_name)){
   table3$iNaturalist.Entry[i] <- filter(RG_iNat_data$Scientific.name)
 }
-
+table3a <- merge(table3, aggregate(RG_iNat_data$Url ~ RG_iNat_data$Scientific.name, data=RG_iNat_data, head, 1), by="Scientific_name") 
 
 #Add in Invasive record
 
 
 #Add in BISON entries. Best to do this last due to the vast amounts of data (list of states) that isn't easily visible in R dataframe.
 #Takes a bit of time.
+
+####WIP
+long.name <- c(state.name, "Alberta Canada", "American Samoa", "British Columbia Canada", "Commonwealth of the Northern Mariana Islands",
+               "District of Columbia", "Guam", "Manitoba Canada", "New Brunswick Canada", 
+               "Newfoundland and Labrador Canada", "Northwest Territories Canada", 
+               "Nova Scotia Canada", "Nunavut Canada", "Ontario Canada", "Prince Edward Island Canada",
+               "Puerto Rico", "Quebec Canada", "Saskatchewan Canada", "United States Virgin Islands", 
+               "Yukon Canada", "Alaska EEZ", "American Samoa EEZ", "Hawaii EEZ", "Howland and Baker Island EEZ",
+               "Jarvis Island EEZ", "Johnston Atoll EEZ", "Northern Mariana Islands and Guam EEZ", 
+               "Palmyra Atoll EEZ", "Puerto Rico EEZ", "US Atlantic EEZ", "US Pacific EEZ",
+               "US Virgin Islands EEZ", "Wake Island EEZ")
+short.name <- c(state.abb, "AB CAN", "AS", "BC CAN", "CNMI", "DC", "GU", "MB CAN", "NB CAN",
+                "NL CAN", "NT CAN", "NS CAN", "NU CAN", "ON CAN", "PE CAN", "PR", "QC CAN",
+                "SK CAN", "USVI", "YT CAN", "AK EEZ", "AS EEZ", "HI EEZ", "Howland-Baker EEZ",
+                "Jarvis EEZ", "Johnston Atoll EEZ", "N MP-GU EEZ", "Palmyra Atoll EEZ", "PR EEZ", "US Atlantic EEZ", "US Pacific EEZ",
+                "USVI EEZ", "Wake EEZ")
+
+all.states <- as.data.frame(cbind(long.name, short.name))
+
+out <- bison(species=table3[1,"Scientific_name"], count=1)
+
+state.counts <- as.data.frame(cbind(out$states[,"record_id"], out$states[, 'total']))
+
+
+for (j in 1:length(state.counts)){
+  state.counts$V1[j] <- all.states[match(state.counts$V1[j], all.states$long.name),2]
+}
+
+states <- paste(out$states[,'record_id'], out$states[,'total'])
+if (table2$iNat_entry[i] %in% NPS_itis_synonyms_df$syn_name == TRUE){
+  table2$NPSpecies_name[i] <- NPS_itis_synonyms_df$name[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
+  table2$Accepted_TSN[i] <- NPS_itis_synonyms_df$acc_tsn[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
+  table2$Accepted_name[i] <- NPS_itis_synonyms_df$acc_name[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
+  table2$Accepted_Reference[i] <- NPS_itis_synonyms_df$acc_author[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
+  table2$Synonym_Reference[i] <- NPS_itis_synonyms_df$syn_author[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
+}
+###
+
 for (i in 1:length(table3$Scientific_name)){
-  out <- bison(species=table3[i,"Scientific_name"], count=5)
+  out <- bison(species=table3[i,"Scientific_name"], count=1)
   states <- paste(out$states[,'record_id'], out$states[,'total'])
   states <- paste(states, collapse="; ")
   table3[i,'BISON'] <- states
 }
 
-write.csv(table3, "LEWI_table3.csv")
+write.csv(table3, paste(park, "_table3.csv", sep=""))
 #11----------------------------------------------------------------------------------------
 #Table 4
 table4 <- RG_iNat_not_iconic[,c(5,3,4)]
 table4 <- table4[order(table4$Iconic.taxon.name, table4$Scientific.name),]
 table4 <- unique(table4)
 
-write.csv(table4, "LEWI_table4.csv")
+write.csv(table4, paste(park, "_table4.csv", sep=""))
 
 #12----------------------------------------------------------------------------------------
 #Graph - need to introduce variables for the axes that can be easily changed at the top to automize better. Also need to change if there will
@@ -231,7 +286,7 @@ table1a <- data2[,c(1,2,6)]
 counts2 <- table(table1a$`Match NPSpecies`, table1a$Iconic_taxa) #not really sure what the plants part is still in here.
 counts3 <- counts2[,-4] #delete the plants column from the table
 
-pdf("LEWI_figure1.pdf", width=7, height=8)
+pdf(paste(park,"_figure1.pdf", sep=""), width=7, height=8)
 
 par(fig=c(0,1,0,1))
 barplot(counts2, ylim=c(0,300), xlab="Taxa", col=c("cadetblue1", "seashell","lightsalmon"), 
