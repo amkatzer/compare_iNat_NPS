@@ -218,13 +218,10 @@ for (i in 1:length(table3$Scientific_name)){
 }
 table3a <- merge(table3, aggregate(RG_iNat_data$Url ~ RG_iNat_data$Scientific.name, data=RG_iNat_data, head, 1), by="Scientific_name") 
 
-#Add in Invasive record
-
 
 #Add in BISON entries. Best to do this last due to the vast amounts of data (list of states) that isn't easily visible in R dataframe.
 #Takes a bit of time.
 
-####WIP
 long.name <- c(state.name, "Alberta Canada", "American Samoa", "British Columbia Canada", "Commonwealth of the Northern Mariana Islands",
                "District of Columbia", "Guam", "Manitoba Canada", "New Brunswick Canada", 
                "Newfoundland and Labrador Canada", "Northwest Territories Canada", 
@@ -239,35 +236,24 @@ short.name <- c(state.abb, "AB CAN", "AS", "BC CAN", "CNMI", "DC", "GU", "MB CAN
                 "SK CAN", "USVI", "YT CAN", "AK EEZ", "AS EEZ", "HI EEZ", "Howland-Baker EEZ",
                 "Jarvis EEZ", "Johnston Atoll EEZ", "N MP-GU EEZ", "Palmyra Atoll EEZ", "PR EEZ", "US Atlantic EEZ", "US Pacific EEZ",
                 "USVI EEZ", "Wake EEZ")
-
-all.states <- as.data.frame(cbind(long.name, short.name))
-
-out <- bison(species=table3[1,"Scientific_name"], count=1)
-
-state.counts <- as.data.frame(cbind(out$states[,"record_id"], out$states[, 'total']))
-
-
-for (j in 1:length(state.counts)){
-  state.counts$V1[j] <- all.states[match(state.counts$V1[j], all.states$long.name),2]
-}
-
-states <- paste(out$states[,'record_id'], out$states[,'total'])
-if (table2$iNat_entry[i] %in% NPS_itis_synonyms_df$syn_name == TRUE){
-  table2$NPSpecies_name[i] <- NPS_itis_synonyms_df$name[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
-  table2$Accepted_TSN[i] <- NPS_itis_synonyms_df$acc_tsn[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
-  table2$Accepted_name[i] <- NPS_itis_synonyms_df$acc_name[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
-  table2$Accepted_Reference[i] <- NPS_itis_synonyms_df$acc_author[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
-  table2$Synonym_Reference[i] <- NPS_itis_synonyms_df$syn_author[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
-}
-###
+all.states <- as.data.frame(cbind(long.name, short.name), stringsAsFactors = FALSE)
 
 for (i in 1:length(table3$Scientific_name)){
-  out <- bison(species=table3[i,"Scientific_name"], count=1)
-  states <- paste(out$states[,'record_id'], out$states[,'total'])
-  states <- paste(states, collapse="; ")
-  table3[i,'BISON'] <- states
+  out <- bison(species=table3$Scientific_name[i], count=1)
+  if (is.null(out$states) == FALSE){
+    state.counts <- as.data.frame(cbind(out$states[,"record_id"]))
+    for (k in 1:length(state.counts$V1)){
+      state.counts$V2[k] <- all.states$short.name[match(state.counts$V1[k], all.states$long.name)]
+    }
+    states <- paste(state.counts$V2, out$states[,'total'])
+    states <- paste(states, collapse="; ")
+    table3[i, 'BISON'] <- states
+  } else {
+    table3[i, 'BISON'] <- "No data available"
+  }
 }
 
+#export table
 write.csv(table3, paste(park, "_table3.csv", sep=""))
 #11----------------------------------------------------------------------------------------
 #Table 4
