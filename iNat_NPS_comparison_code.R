@@ -23,6 +23,7 @@ library("rbison")
 library(tidyr)
 library(stringr)
 library(dplyr)
+library(data.table)
 #2----------------------------------------------------------------------------------------
 #Specify park:
 park <- c("LEWI")
@@ -70,18 +71,18 @@ for (i in 1:length(RG_iNat_data2)){
 #Get synonyms for all of the NPSpecies entries from ITIS
 #This can take a while depending on the number of NPS entries (sometimes over 2 hours)
 
-NPS_itis_synonyms <- vector(length=0)
+#NPS_itis_synonyms <- vector(length=0)
 
-for (j in 1:length(NPS_data$Scientific.name)){
-  NPS_itis_synonyms[j] <- synonyms(NPS_data$Scientific.name[j], db='itis', rows = 1) #synonyms function is from the taxize package; rows=1 is taking the first row from every entry. This may not be the best way, but it is the best way to automate
-}
-NPS_itis_synonyms <- setNames(NPS_itis_synonyms, NPS_data$Scientific.name)
-NPS_itis_synonyms_df <- enframe(NPS_itis_synonyms) %>% unnest #make the mega list into a df
+#for (j in 1:length(NPS_data$Scientific.name)){
+#  NPS_itis_synonyms[j] <- synonyms(NPS_data$Scientific.name[j], db='itis', rows = 1) #synonyms function is from the taxize package; rows=1 is taking the first row from every entry. This may not be the best way, but it is the best way to automate
+#}
+#NPS_itis_synonyms <- setNames(NPS_itis_synonyms, NPS_data$Scientific.name)
+#NPS_itis_synonyms_df <- enframe(NPS_itis_synonyms) %>% unnest #make the mega list into a df
 #got a warning message that cols is now required.
 
 #input table so we do not have to download the synonyms: code from Kelsey Cooper (Indiana State)
-syn_nums <- read.table('synonym_links', sep ="|", header = FALSE, dec =".")
-sci_names <- read.table('taxonomic_units', sep ="|", header = FALSE, dec =".", fill=T)
+syn_nums <- read.table('synonym_links', sep ="|", header = FALSE, dec =".", stringsAsFactors = FALSE)
+sci_names <- read.table('taxonomic_units', sep ="|", header = FALSE, dec =".", fill=T, stringsAsFactors = FALSE)
 sci_names <- sci_names[c('V1','V26')]
 setnames(sci_names, old=c("V1","V26"), new=c("TSN", "Scientific.Name"))
 setnames(syn_nums, old=c("V1","V2", "V3"), new=c("TSN", "SYN.TSN", "Date"))
@@ -90,6 +91,20 @@ NPS_itis_synonyms_df <- merge(NPS_itis_synonyms_df, sci_names, by.x='SYN.TSN', b
 NPS_itis_synonyms_df <- NPS_itis_synonyms_df[-3]
 NPS_itis_synonyms_df <- NPS_itis_synonyms_df[,c(1, 4, 2, 3)]
 setnames(NPS_itis_synonyms_df, old=c("SYN.TSN","TSN", "Scientific.Name.x", "Scientific.Name.y"), new=c("TSN", "SYN.TSN", "SYN.Scientific.Name", "Scientific.Name"))
+
+NPS_synonyms <- data.frame(Scientific.name=character(), Synonym=character(), stringsAsFactors = FALSE)
+
+for (i in 1:length(NPS_data$Scientific.name)) {
+  if (NPS_itis_synonyms_df$Scientific.Name[i] %in% NPS_data$Scientific.name == TRUE){
+    placeholderdf <- data.frame(Scientific.name=character(), Synonym=character(), stringsAsFactors = FALSE)
+    placeholderdf$Synonym <- NPS_itis_synonyms_df[match(NPS_data$Scientific.name[i], NPS_itis_synonyms_df$SYN.Scientific.Name)]
+    NPS_synonyms <- rbind(NPS_synonyms, placeholderdf)
+   # NPS_synonyms$Synonym[i] <- NPS_data$Scientific.name[match(NPS_data$Scientific.name[i], NPS_itis_synonyms_df$SYN.Scientific.Name)]  
+    }
+}#subset entire table to make a small table that matches the scientific name
+
+
+
 
 
 
@@ -163,16 +178,16 @@ table1 <- unique(table1)
 
 
 #Add in the counts for entries (number of entries per species) - currently untested
-table1[, "Entry_Count"] <- c("")
+#table1[, "Entry_Count"] <- c("")
 
 
-entry_number <- as.matrix(tapply(data$Scientific_name, data$Scientific_name, length))
-colnames(entry_number) <- c("Scientific.name", "Number")
+#entry_number <- as.matrix(tapply(data$Scientific_name, data$Scientific_name, length))
+#colnames(entry_number) <- c("Scientific.name", "Number")
 
-for (i in 1:length(table1$Scientific_name)){
-  if (table1$Scientific_name == entry_number)
-  table1$Entry_Count
-}
+#for (i in 1:length(table1$Scientific_name)){
+#  if (table1$Scientific_name == entry_number)
+#  table1$Entry_Count
+#}
 
 write.csv(table1, paste(park, "_table1.csv", sep=""))
 
@@ -213,9 +228,9 @@ table3[,"iNaturalist.Entry"] <- c("")
 table3[,"Invasive.Record"] <- c("")
 
 #Add in iNaturalist entry - work in progress
-for (i in 1:length(table3$Scientific_name)){
-  table3$iNaturalist.Entry[i] <- filter(RG_iNat_data$Scientific.name)
-}
+#for (i in 1:length(table3$Scientific_name)){
+#  table3$iNaturalist.Entry[i] <- filter(RG_iNat_data$Scientific.name)
+#}
 table3a <- merge(table3, aggregate(RG_iNat_data$Url ~ RG_iNat_data$Scientific.name, data=RG_iNat_data, head, 1), by="Scientific_name") 
 
 
