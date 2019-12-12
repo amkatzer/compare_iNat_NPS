@@ -30,12 +30,10 @@ park <- c("LEWI")
 options(stringsAsFactors = FALSE)
 
 #First, import data
-#You must remake the header line in the csv file for this to work. 
-#Completely delete line 1 and make new headers in excel. Save as a csv.
 NPS_data <- read.csv("./NPSpecies_Checklist_LEWI_20190516093957.csv", header=T, skipNul = T, stringsAsFactors=F)
 NPS_data2 <- word(NPS_data$Scientific.name, start=1, end=2, sep=" ")
 
-#Get iNaturalist data through an API so we don't have to deal with downloading it
+#Get iNaturalist data through an API
 #get_inat_obs_project is from the rinat package
 
 iNat_data <- get_inat_obs_project("2016-national-parks-bioblitz-lewis-and-clark", type="observations")
@@ -71,16 +69,6 @@ for (i in 1:length(RG_iNat_data2)){
 
 #5----------------------------------------------------------------------------------------
 #Get synonyms for all of the NPSpecies entries from ITIS
-#This can take a while depending on the number of NPS entries (sometimes over 2 hours)
-
-#NPS_itis_synonyms <- vector(length=0)
-
-#for (j in 1:length(NPS_data$Scientific.name)){
-#  NPS_itis_synonyms[j] <- synonyms(NPS_data$Scientific.name[j], db='itis', rows = 1) #synonyms function is from the taxize package; rows=1 is taking the first row from every entry. This may not be the best way, but it is the best way to automate
-#}
-#NPS_itis_synonyms <- setNames(NPS_itis_synonyms, NPS_data$Scientific.name)
-#NPS_itis_synonyms_df <- enframe(NPS_itis_synonyms) %>% unnest #make the mega list into a df
-#got a warning message that cols is now required.
 
 #input table so we do not have to download the synonyms: code from Kelsey Cooper (Indiana State)
 syn_nums <- read.table('synonym_links', sep ="|", header = FALSE, dec =".", stringsAsFactors = FALSE)
@@ -112,21 +100,6 @@ for (i in 1:length(RG_iNat_data2)) {
   iNat_itis_nonsyn_matches[i] <- RG_iNat_data2[i] %in% NPS_synonyms$Scientific.Name
 }
 
-
-
-#Old code done by using the list instead of making the list a df
-#Take out all of the columns besides the synonym names 
-#NPS_itis_synonyms2 <- lapply(NPS_itis_synonyms, function(x) x[(names(x) %in% c("syn_name"))])
-#NPS_itis_synonyms3 <- unlist(NPS_itis_synonyms2)
-#NPS_itis_synonyms4 <- word(NPS_itis_synonyms3, start=1, end=2, sep=" ")
-
-#Compare the iNat entries to the synonym names - in list
-#iNat_itis_synonym_matches <- vector(mode="logical", length=0)
-
-#for (i in 1:length(RG_iNat_data2)){
-#  iNat_itis_synonym_matches[i] <- RG_iNat_data2[i] %in% NPS_itis_synonyms4
-#}
-
 #6----------------------------------------------------------------------------------------
 #Make a new dataframe with the raw results
 data <- cbind(RG_iNat_data2, RG_iNat_data_iconic$Iconic.taxon.name, iNat_NPS_matches, iNat_NPSsynonym_matches, iNat_itis_synonym_matches, iNat_itis_nonsyn_matches)
@@ -144,9 +117,7 @@ data2 <- unique(data)
 
 #8----------------------------------------------------------------------------------------
 #Table 1: All data; tells which falses are synonyms (to NPS or itis) and which are new
-#need to append the non-iconic taxa into the table.
 
-#currently not adding in the second itis matches in
 data2[,"Match NPSpecies"] <- c("")
 for (i in 1:length(data2$Scientific_name)){
   if (data2[i,3]==TRUE){
@@ -175,22 +146,10 @@ for (i in 1:length(table1$Scientific_name)){
 
 table1 <- table1[order(table1$Iconic_taxa, table1$Scientific_name),]
 table1 <- unique(table1)
-#The above function is not working correctly. Need to figure out how to get the iconic taxa to be in alphabetical order
-#It isn't a ordered factor either
 
 
+#Add in the counts for entries (number of entries per species)
 
-#Add in the counts for entries (number of entries per species) - currently untested
-#table1[, "Entry_Count"] <- c("")
-
-
-#entry_number <- as.matrix(tapply(data$Scientific_name, data$Scientific_name, length))
-#colnames(entry_number) <- c("Scientific.name", "Number")
-
-#for (i in 1:length(table1$Scientific_name)){
-#  if (table1$Scientific_name == entry_number)
-#  table1$Entry_Count
-#}
 
 write.csv(table1, paste(park, "_table1.csv", sep=""))
 
@@ -205,8 +164,6 @@ table2$iNat_entry <- as.character(table2$iNat_entry)
 table2[,"NPSpecies_name"] <- c("") 
 table2[,"Accepted_TSN"] <- c("")
 table2[,"NPS_entry_TSN"] <- c("")
-#table2[,"Accepted_Reference"] <- c("")
-#table2[,"Synonym_Reference"] <- c("")
 
 for (i in 1:length(table2$iNat_entry)) {
   if (table2$iNat_entry[i] %in% NPS_synonyms$SYN.Scientific.Name == TRUE){
@@ -221,16 +178,6 @@ for (i in 1:length(table2$iNat_entry)) {
 }
 
 
-#for (i in 1:length(table2$iNat_entry)) {
-#  if (table2$iNat_entry[i] %in% NPS_itis_synonyms_df$syn_name == TRUE){
-#    table2$NPSpecies_name[i] <- NPS_itis_synonyms_df$name[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
-#    table2$Accepted_TSN[i] <- NPS_itis_synonyms_df$acc_tsn[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
-#    table2$Accepted_name[i] <- NPS_itis_synonyms_df$acc_name[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
-#    table2$Accepted_Reference[i] <- NPS_itis_synonyms_df$acc_author[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
-#    table2$Synonym_Reference[i] <- NPS_itis_synonyms_df$syn_author[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
-#  }
-#}
-
 write.csv(table2, paste(park,"_table2.csv", sep=""))
 
 #10----------------------------------------------------------------------------------------
@@ -243,10 +190,8 @@ table3[,"iNaturalist.Entry"] <- c("")
 table3[,"Invasive.Record"] <- c("")
 
 #Add in iNaturalist entry - work in progress
-#for (i in 1:length(table3$Scientific_name)){
-#  table3$iNaturalist.Entry[i] <- filter(RG_iNat_data$Scientific.name)
-#}
-table3a <- merge(table3, aggregate(RG_iNat_data$Url ~ RG_iNat_data$Scientific.name, data=RG_iNat_data, head, 1), by="Scientific_name") 
+
+
 
 
 #Add in BISON entries. Best to do this last due to the vast amounts of data (list of states) that isn't easily visible in R dataframe.
@@ -294,9 +239,9 @@ table4 <- unique(table4)
 write.csv(table4, paste(park, "_table4.csv", sep=""))
 
 #12----------------------------------------------------------------------------------------
-#Graph - need to introduce variables for the axes that can be easily changed at the top to automize better. Also need to change if there will
-#be 4 or 3 colors for the graph (NPS synonym being added in)
-table1a <- data2[,c(1,2,6)]
+#Graph
+
+table1a <- data2[,c(1,2,7)]
 
 #No Plants stacked barplot
 counts2 <- table(table1a$`Match NPSpecies`, table1a$Iconic_taxa) #not really sure what the plants part is still in here.
