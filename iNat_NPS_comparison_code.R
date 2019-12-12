@@ -27,6 +27,7 @@ library(data.table)
 #2----------------------------------------------------------------------------------------
 #Specify park:
 park <- c("LEWI")
+options(stringsAsFactors = FALSE)
 
 #First, import data
 #You must remake the header line in the csv file for this to work. 
@@ -38,6 +39,7 @@ NPS_data2 <- word(NPS_data$Scientific.name, start=1, end=2, sep=" ")
 #get_inat_obs_project is from the rinat package
 
 iNat_data <- get_inat_obs_project("2016-national-parks-bioblitz-lewis-and-clark", type="observations")
+as.character(iNat_data$Scientific.name)
 
 #Create new data frame with only the RG & iconic taxa
 RG_iNat_data <- iNat_data[iNat_data$Quality.grade == "research",]
@@ -95,24 +97,22 @@ setnames(NPS_itis_synonyms_df, old=c("SYN.TSN","TSN", "Scientific.Name.x", "Scie
 NPS_synonyms <- data.frame(Scientific.name=character(), Synonym=character(), stringsAsFactors = FALSE)
 
 for (i in 1:length(NPS_data$Scientific.name)) {
-  if (NPS_itis_synonyms_df$Scientific.Name[i] %in% NPS_data$Scientific.name == TRUE){
-    placeholderdf <- data.frame(Scientific.name=character(), Synonym=character(), stringsAsFactors = FALSE)
-    placeholderdf$Synonym <- NPS_itis_synonyms_df[match(NPS_data$Scientific.name[i], NPS_itis_synonyms_df$SYN.Scientific.Name)]
-    NPS_synonyms <- rbind(NPS_synonyms, placeholderdf)
-   # NPS_synonyms$Synonym[i] <- NPS_data$Scientific.name[match(NPS_data$Scientific.name[i], NPS_itis_synonyms_df$SYN.Scientific.Name)]  
-    }
-}#subset entire table to make a small table that matches the scientific name
-
-
-
-
+    placeholderdf <- NPS_itis_synonyms_df[grepl(NPS_data$Scientific.name[i], NPS_itis_synonyms_df$Scientific.Name),] 
+    placeholderdf2 <- NPS_itis_synonyms_df[grepl(NPS_data$Scientific.name[i], NPS_itis_synonyms_df$SYN.Scientific.Name),]
+    NPS_synonyms <- rbind(NPS_synonyms, placeholderdf, placeholderdf2)
+}
 
 
 #use the df of synonyms
 iNat_itis_synonym_matches <- vector(mode="logical", length=0)
+iNat_itis_nonsyn_matches <- vector(mode="logical", length=0)
+
 for (i in 1:length(RG_iNat_data2)) {
-  iNat_itis_synonym_matches[i] <- RG_iNat_data2[i] %in% NPS_itis_synonyms_df$syn_name
+  iNat_itis_synonym_matches[i] <- RG_iNat_data2[i] %in% NPS_synonyms$SYN.Scientific.Name
+  iNat_itis_nonsyn_matches[i] <- RG_iNat_data2[i] %in% NPS_synonyms$Scientific.Name
 }
+
+
 
 #Old code done by using the list instead of making the list a df
 #Take out all of the columns besides the synonym names 
@@ -129,7 +129,7 @@ for (i in 1:length(RG_iNat_data2)) {
 
 #6----------------------------------------------------------------------------------------
 #Make a new dataframe with the raw results
-data <- cbind(RG_iNat_data2, RG_iNat_data_iconic$Iconic.taxon.name, iNat_NPS_matches, iNat_NPSsynonym_matches, iNat_itis_synonym_matches)
+data <- cbind(RG_iNat_data2, RG_iNat_data_iconic$Iconic.taxon.name, iNat_NPS_matches, iNat_NPSsynonym_matches, iNat_itis_synonym_matches, iNat_itis_nonsyn_matches)
 data <- as.data.frame(na.omit(data))
 colnames(data)[1] <- c("Scientific_name")
 colnames(data)[2] <- c("Iconic_taxa")
@@ -146,20 +146,23 @@ data2 <- unique(data)
 #Table 1: All data; tells which falses are synonyms (to NPS or itis) and which are new
 #need to append the non-iconic taxa into the table.
 
+#currently not adding in the second itis matches in
 data2[,"Match NPSpecies"] <- c("")
 for (i in 1:length(data2$Scientific_name)){
   if (data2[i,3]==TRUE){
-    data2[i,6] <- c("Match")
+    data2[i,7] <- c("Match")
   } else if (data2[i,4]==TRUE & data2[i,3]==FALSE) {
-  data2[i,6] <- c("NPSpecies synonym match")
+  data2[i,7] <- c("NPSpecies synonym match")
   } else if (data2[i,5] == TRUE & data2[i,3] == FALSE & data2[i,4] == FALSE) {
-    data2[i,6] <- c("ITIS Match")
+    data2[i,7] <- c("ITIS Match")
+  } else if (data2[i,6] ==TRUE & data2[i,3] == FALSE & data2[i,4] == FALSE){
+    data2[i,7] <- c("ITIS Match")
   } else {
-    data2[i,6] <- c("No Match")
+    data2[i,7] <- c("No Match")
   }
 }
 
-table1 <- data2[,c(1,2,6)]
+table1 <- data2[,c(1,2,7)]
 
 table1 <- add_row(.data=table1, Scientific_name=RG_iNat_not_iconic$Scientific.name, Iconic_taxa=RG_iNat_not_iconic$Iconic.taxon.name)
 
@@ -195,26 +198,38 @@ write.csv(table1, paste(park, "_table1.csv", sep=""))
 #Table 2: All Synonym data and what the taxonomic update is (itis only)
 
 #1. set up table to have 4 columns
-table2 <- data2[data2$`Match NPSpecies`=="ITIS Match",]
+table2 <- table1[table1$`Match NPSpecies` =="ITIS Match",]
 table2 <- table2[,c(2,1)]
-colnames(table2)[colnames(table2)=="Scientific_name"] <- "iNat_entry"
+colnames(table2)[colnames(table2)=="Scientific_name"] <- "iNat_entry" #Giving some weird warning message that is annoying
 table2$iNat_entry <- as.character(table2$iNat_entry)
 table2[,"NPSpecies_name"] <- c("") 
 table2[,"Accepted_TSN"] <- c("")
-table2[,"Accepted_name"] <- c("")
-table2[,"Accepted_Reference"] <- c("")
-table2[,"Synonym_Reference"] <- c("")
-
+table2[,"NPS_entry_TSN"] <- c("")
+#table2[,"Accepted_Reference"] <- c("")
+#table2[,"Synonym_Reference"] <- c("")
 
 for (i in 1:length(table2$iNat_entry)) {
-  if (table2$iNat_entry[i] %in% NPS_itis_synonyms_df$syn_name == TRUE){
-    table2$NPSpecies_name[i] <- NPS_itis_synonyms_df$name[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
-    table2$Accepted_TSN[i] <- NPS_itis_synonyms_df$acc_tsn[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
-    table2$Accepted_name[i] <- NPS_itis_synonyms_df$acc_name[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
-    table2$Accepted_Reference[i] <- NPS_itis_synonyms_df$acc_author[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
-    table2$Synonym_Reference[i] <- NPS_itis_synonyms_df$syn_author[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
+  if (table2$iNat_entry[i] %in% NPS_synonyms$SYN.Scientific.Name == TRUE){
+    table2$NPSpecies_name[i] <- NPS_synonyms$Scientific.Name[match(table2$iNat_entry[i], NPS_synonyms$SYN.Scientific.Name)]
+    table2$Accepted_TSN[i] <- NPS_synonyms$TSN[match(table2$iNat_entry[i], NPS_synonyms$SYN.Scientific.Name)]
+    table2$NPS_entry_TSN[i] <- NPS_synonyms$SYN.TSN[match(table2$iNat_entry[i], NPS_synonyms$SYN.Scientific.Name)]
+  } else if (table2$iNat_entry[i] %in% NPS_synonyms$Scientific.Name == TRUE) {
+    table2$NPSpecies_name[i] <- NPS_synonyms$Scientific.Name[match(table2$iNat_entry[i], NPS_synonyms$Scientific.Name)]
+    table2$Accepted_TSN[i] <- NPS_synonyms$TSN[match(table2$iNat_entry[i], NPS_synonyms$Scientific.Name)]
+    table2$NPS_entry_TSN[i] <- NPS_synonyms$SYN.TSN[match(table2$iNat_entry[i], NPS_synonyms$Scientific.Name)]
   }
 }
+
+
+#for (i in 1:length(table2$iNat_entry)) {
+#  if (table2$iNat_entry[i] %in% NPS_itis_synonyms_df$syn_name == TRUE){
+#    table2$NPSpecies_name[i] <- NPS_itis_synonyms_df$name[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
+#    table2$Accepted_TSN[i] <- NPS_itis_synonyms_df$acc_tsn[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
+#    table2$Accepted_name[i] <- NPS_itis_synonyms_df$acc_name[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
+#    table2$Accepted_Reference[i] <- NPS_itis_synonyms_df$acc_author[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
+#    table2$Synonym_Reference[i] <- NPS_itis_synonyms_df$syn_author[match(table2$iNat_entry[i], NPS_itis_synonyms_df$syn_name)]
+#  }
+#}
 
 write.csv(table2, paste(park,"_table2.csv", sep=""))
 
