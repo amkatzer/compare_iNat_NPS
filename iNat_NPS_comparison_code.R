@@ -37,7 +37,7 @@ NPS_data2 <- word(NPS_data$Scientific.name, start=1, end=2, sep=" ")
 #get_inat_obs_project is from the rinat package
 
 iNat_data <- get_inat_obs_project("2016-national-parks-bioblitz-lewis-and-clark", type="observations")
-as.character(iNat_data$Scientific.name)
+as.character(iNat_data$Scientific.name) #this prints the data?
 
 #Create new data frame with only the RG & iconic taxa
 RG_iNat_data <- iNat_data[iNat_data$Quality.grade == "research",]
@@ -102,15 +102,16 @@ for (i in 1:length(RG_iNat_data2)) {
 
 #6----------------------------------------------------------------------------------------
 #Make a new dataframe with the raw results
-data <- cbind(RG_iNat_data2, RG_iNat_data_iconic$Iconic.taxon.name, iNat_NPS_matches, iNat_NPSsynonym_matches, iNat_itis_synonym_matches, iNat_itis_nonsyn_matches)
+data <- cbind(RG_iNat_data2, RG_iNat_data_iconic$Iconic.taxon.name, iNat_NPS_matches, iNat_NPSsynonym_matches, iNat_itis_synonym_matches, iNat_itis_nonsyn_matches, RG_iNat_data_iconic$Url)
 data <- as.data.frame(na.omit(data))
 colnames(data)[1] <- c("Scientific_name")
 colnames(data)[2] <- c("Iconic_taxa")
+colnames(data)[7] <- c("iNaturalist_URL")
 data <- data[order(data$Iconic_taxa, data$Scientific_name),]
 
 #OUtput the raw data into a csv file. 
-write.csv(data, file=paste(park,"_data2.csv", sep=""))
-
+write.csv(data, file=paste(park,"_data.csv", sep=""))
+data <- data[,-7]
 #7----------------------------------------------------------------------------------------
 #For all the tables, need to remove duplicate species entries
 data2 <- unique(data)
@@ -158,8 +159,6 @@ for (i in 1:length(table1$Scientific_name)) {
   }
 }
 
-#which(mydata$sCode == "CA")
-
 write.csv(table1, paste(park, "_table1.csv", sep=""))
 
 #9----------------------------------------------------------------------------------------
@@ -190,15 +189,11 @@ write.csv(table2, paste(park,"_table2.csv", sep=""))
 
 #10----------------------------------------------------------------------------------------
 #Table 3: All potentially new species
-#columns: taxa, scientific name, common name, BISON occurrences, iNat observation, invasive?
+#columns: taxa, scientific name, common name, BISON occurrences, invasive
 table3 <- table1[table1$`Match NPSpecies`=="No Match",]
 table3 <- table3[,c(2:1)]
 table3[,"BISON"] <- c("")
-table3[,"iNaturalist.Entry"] <- c("")
 table3[,"Invasive.Record"] <- c("")
-
-#Add in iNaturalist entry - work in progress
-
 
 #Invasive record 
 inv_list <- read.csv("https://raw.githubusercontent.com/KelseyDCooper/USGS-NPS-App/master/invasives_list.csv")
@@ -260,7 +255,7 @@ write.csv(table4, paste(park, "_table4.csv", sep=""))
 table1a <- data2[,c(1,2,7)]
 
 counts2 <- table(table1a$`Match NPSpecies`, table1a$Iconic_taxa) 
-counts3 <- counts2$Var2[,-4] #delete the plants column from the table
+counts3 <- counts2[,-4] #delete the plants column from the table
 
 #give us y axis maximums
 dfcounts <- as.data.frame(counts2)
@@ -285,8 +280,6 @@ par(fig=c(0.1,0.5,0.5,1), new=TRUE)
 barplot(counts3, ylim=c(0,sub_high),col=c("cadetblue1", "seashell","lightsalmon", "mediumorchid4"), cex.names=0.45)
 
 dev.off()
-
-
 
 
 
