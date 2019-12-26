@@ -136,6 +136,7 @@ for (i in 1:length(data2$Scientific_name)){
 table1 <- data2[,c(1,2,7)]
 
 table1 <- add_row(.data=table1, Scientific_name=RG_iNat_not_iconic$Scientific.name, Iconic_taxa=RG_iNat_not_iconic$Iconic.taxon.name)
+table1['iNaturalist_Entry_count'] <- c("")
 
 for (i in 1:length(table1$Scientific_name)){
   if (table1[i, 2] != "Amphibia" & table1[i, 2] != "Aves" & table1[i, 2] != "Mammalia" &
@@ -149,7 +150,15 @@ table1 <- unique(table1)
 
 
 #Add in the counts for entries (number of entries per species)
+for (i in 1:length(table1$Scientific_name)) {
+  if (table1$Scientific_name[i] %in% data2$Scientific_name){
+  table1$iNaturalist_Entry_count[i] <- length(which(data$Scientific_name == table1$Scientific_name[i]))
+  } else {
+    table1$iNaturalist_Entry_count[i] <- length(which(RG_iNat_not_iconic ==table1$Scientific_name[i]))
+  }
+}
 
+#which(mydata$sCode == "CA")
 
 write.csv(table1, paste(park, "_table1.csv", sep=""))
 
@@ -167,16 +176,15 @@ table2[,"NPS_entry_TSN"] <- c("")
 
 for (i in 1:length(table2$iNat_entry)) {
   if (table2$iNat_entry[i] %in% NPS_synonyms$SYN.Scientific.Name == TRUE){
-    table2$NPSpecies_name[i] <- NPS_synonyms$Scientific.Name[match(table2$iNat_entry[i], NPS_synonyms$SYN.Scientific.Name)]
     table2$Accepted_TSN[i] <- NPS_synonyms$TSN[match(table2$iNat_entry[i], NPS_synonyms$SYN.Scientific.Name)]
     table2$NPS_entry_TSN[i] <- NPS_synonyms$SYN.TSN[match(table2$iNat_entry[i], NPS_synonyms$SYN.Scientific.Name)]
+    table2$NPSpecies_name[i] <- NPS_synonyms$Scientific.Name[match(table2$iNat_entry[i], NPS_synonyms$SYN.Scientific.Name)]
   } else if (table2$iNat_entry[i] %in% NPS_synonyms$Scientific.Name == TRUE) {
-    table2$NPSpecies_name[i] <- NPS_synonyms$Scientific.Name[match(table2$iNat_entry[i], NPS_synonyms$Scientific.Name)]
     table2$Accepted_TSN[i] <- NPS_synonyms$TSN[match(table2$iNat_entry[i], NPS_synonyms$Scientific.Name)]
     table2$NPS_entry_TSN[i] <- NPS_synonyms$SYN.TSN[match(table2$iNat_entry[i], NPS_synonyms$Scientific.Name)]
+    table2$NPSpecies_name[i] <- NPS_synonyms$SYN.Scientific.Name[match(table2$iNat_entry[i], NPS_synonyms$Scientific.Name)]
+    }
   }
-}
-
 
 write.csv(table2, paste(park,"_table2.csv", sep=""))
 
@@ -192,7 +200,15 @@ table3[,"Invasive.Record"] <- c("")
 #Add in iNaturalist entry - work in progress
 
 
-
+#Invasive record 
+inv_list <- read.csv("https://raw.githubusercontent.com/KelseyDCooper/USGS-NPS-App/master/invasives_list.csv")
+for (i in 1:length(table3$Scientific_name)){
+  if (table3$Scientific_name[i] %in% inv_list$Scientific.Name){
+    table3$Invasive.Record[i] <- c("Yes")
+  } else {
+    table3$Invasive.Record[i] <- c("No")
+  }
+}
 
 #Add in BISON entries. Best to do this last due to the vast amounts of data (list of states) that isn't easily visible in R dataframe.
 #Takes a bit of time.
@@ -243,19 +259,30 @@ write.csv(table4, paste(park, "_table4.csv", sep=""))
 
 table1a <- data2[,c(1,2,7)]
 
-#No Plants stacked barplot
-counts2 <- table(table1a$`Match NPSpecies`, table1a$Iconic_taxa) #not really sure what the plants part is still in here.
-counts3 <- counts2[,-4] #delete the plants column from the table
+counts2 <- table(table1a$`Match NPSpecies`, table1a$Iconic_taxa) 
+counts3 <- counts2$Var2[,-4] #delete the plants column from the table
 
+#give us y axis maximums
+dfcounts <- as.data.frame(counts2)
+amphibiasum <- sum(dfcounts$Freq[dfcounts$Var2 == "Amphibia"])
+avessum <- sum(dfcounts$Freq[dfcounts$Var2 == "Aves"])
+mammaliasum <- sum(dfcounts$Freq[dfcounts$Var2 == "Mammalia"])
+plantaesum <- sum(dfcounts$Freq[dfcounts$Var2 == "Plantae"])
+reptiliasum <- sum(dfcounts$Freq[dfcounts$Var2 == "Reptilia"])
+
+all_high <- max(rbind(amphibiasum, avessum, mammaliasum, plantaesum, reptiliasum)) +20
+sub_high <- max(rbind(amphibiasum, avessum, mammaliasum, reptiliasum)) +20
+
+#Time to graph!
 pdf(paste(park,"_figure1.pdf", sep=""), width=7, height=8)
 
 par(fig=c(0,1,0,1))
-barplot(counts2, ylim=c(0,300), xlab="Taxa", col=c("cadetblue1", "seashell","lightsalmon"), 
+barplot(counts2, ylim=c(0,all_high), xlab="Taxa", col=c("cadetblue1", "seashell","lightsalmon"), 
         ylab="Number of Species")
 legend("topright", inset=0.02, legend = rownames(counts2) , fill = c("cadetblue1", "seashell","lightsalmon","mediumorchid4"))
 
 par(fig=c(0.1,0.5,0.5,1), new=TRUE)
-barplot(counts3, ylim=c(0,70),col=c("cadetblue1", "seashell","lightsalmon", "mediumorchid4"), cex.names=0.45)
+barplot(counts3, ylim=c(0,sub_high),col=c("cadetblue1", "seashell","lightsalmon", "mediumorchid4"), cex.names=0.45)
 
 dev.off()
 
