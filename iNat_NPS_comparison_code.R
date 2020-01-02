@@ -110,6 +110,7 @@ colnames(data)[7] <- c("iNaturalist_URL")
 data <- data[order(data$Iconic_taxa, data$Scientific_name),]
 
 #OUtput the raw data into a csv file. 
+rownames(data) <- c()
 write.csv(data, file=paste(park,"_data.csv", sep=""))
 data <- data[,-7]
 #7----------------------------------------------------------------------------------------
@@ -159,6 +160,7 @@ for (i in 1:length(table1$Scientific_name)) {
   }
 }
 
+rownames(table1) <- c()
 write.csv(table1, paste(park, "_table1.csv", sep=""))
 
 #9----------------------------------------------------------------------------------------
@@ -185,6 +187,7 @@ for (i in 1:length(table2$iNat_entry)) {
     }
   }
 
+rownames(table2) <- c()
 write.csv(table2, paste(park,"_table2.csv", sep=""))
 
 #10----------------------------------------------------------------------------------------
@@ -240,6 +243,7 @@ for (i in 1:length(table3$Scientific_name)){
 }
 
 #export table
+rownames(table3) <- c()
 write.csv(table3, paste(park, "_table3.csv", sep=""))
 #11----------------------------------------------------------------------------------------
 #Table 4
@@ -247,6 +251,7 @@ table4 <- RG_iNat_not_iconic[,c(5,3,4)]
 table4 <- table4[order(table4$Iconic.taxon.name, table4$Scientific.name),]
 table4 <- unique(table4)
 
+rownames(table4) <- c()
 write.csv(table4, paste(park, "_table4.csv", sep=""))
 
 #12----------------------------------------------------------------------------------------
@@ -256,7 +261,7 @@ table1a <- data2[,c(1,2,7)]
 
 counts2 <- table(table1a$`Match NPSpecies`, table1a$Iconic_taxa) 
 counts3 <- counts2[,-4] #delete the plants column from the table
-
+colnames(counts3) <- c("Amph", "Aves", "Mamm", "Rept")
 #give us y axis maximums
 dfcounts <- as.data.frame(counts2)
 amphibiasum <- sum(dfcounts$Freq[dfcounts$Var2 == "Amphibia"])
@@ -271,13 +276,19 @@ sub_high <- max(rbind(amphibiasum, avessum, mammaliasum, reptiliasum)) +20
 #Time to graph!
 pdf(paste(park,"_figure1.pdf", sep=""), width=7, height=8)
 
-par(fig=c(0,1,0,1))
+#par(fig=c(0,1,0,1))
+par(mar=c(5.1, 4.1, 4.1, 8.1), xpd=TRUE)
+
 barplot(counts2, ylim=c(0,all_high), xlab="Taxa", col=c("cadetblue1", "seashell","lightsalmon"), 
         ylab="Number of Species")
-legend("topright", inset=0.02, legend = rownames(counts2) , fill = c("cadetblue1", "seashell","lightsalmon","mediumorchid4"))
 
-par(fig=c(0.1,0.5,0.5,1), new=TRUE)
+legend("right", inset=c(-0.35,0), legend = rownames(counts2) , fill = c("cadetblue1", "seashell","lightsalmon","mediumorchid4"))
+
+par(fig=c(0.75,1,0.75,1), mar=c(1,1,1,1), new=TRUE)
+#par(fig=c(0.1,0.5,0.5,1), new=TRUE)
 barplot(counts3, ylim=c(0,sub_high),col=c("cadetblue1", "seashell","lightsalmon", "mediumorchid4"), cex.names=0.45)
+
+
 
 dev.off()
 
