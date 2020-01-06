@@ -76,33 +76,33 @@ sci_names <- read.table('taxonomic_units', sep ="|", header = FALSE, dec =".", f
 sci_names <- sci_names[c('V1','V26')]
 setnames(sci_names, old=c("V1","V26"), new=c("TSN", "Scientific.Name"))
 setnames(syn_nums, old=c("V1","V2", "V3"), new=c("TSN", "SYN.TSN", "Date"))
-NPS_itis_synonyms_df <- merge(syn_nums, sci_names, by='TSN', all.x=T)
-NPS_itis_synonyms_df <- merge(NPS_itis_synonyms_df, sci_names, by.x='SYN.TSN', by.y='TSN', all.x=T)
-NPS_itis_synonyms_df <- NPS_itis_synonyms_df[-3]
-NPS_itis_synonyms_df <- NPS_itis_synonyms_df[,c(1, 4, 2, 3)]
-setnames(NPS_itis_synonyms_df, old=c("SYN.TSN","TSN", "Scientific.Name.x", "Scientific.Name.y"), new=c("TSN", "SYN.TSN", "SYN.Scientific.Name", "Scientific.Name"))
+NPS_ITIS_synonyms_df <- merge(syn_nums, sci_names, by='TSN', all.x=T)
+NPS_ITIS_synonyms_df <- merge(NPS_ITIS_synonyms_df, sci_names, by.x='SYN.TSN', by.y='TSN', all.x=T)
+NPS_ITIS_synonyms_df <- NPS_ITIS_synonyms_df[-3]
+NPS_ITIS_synonyms_df <- NPS_ITIS_synonyms_df[,c(1, 4, 2, 3)]
+setnames(NPS_ITIS_synonyms_df, old=c("SYN.TSN","TSN", "Scientific.Name.x", "Scientific.Name.y"), new=c("TSN", "SYN.TSN", "SYN.Scientific.Name", "Scientific.Name"))
 
 NPS_synonyms <- data.frame(Scientific.name=character(), Synonym=character(), stringsAsFactors = FALSE)
 
 for (i in 1:length(NPS_data$Scientific.name)) {
-    placeholderdf <- NPS_itis_synonyms_df[grepl(NPS_data$Scientific.name[i], NPS_itis_synonyms_df$Scientific.Name),] 
-    placeholderdf2 <- NPS_itis_synonyms_df[grepl(NPS_data$Scientific.name[i], NPS_itis_synonyms_df$SYN.Scientific.Name),]
+    placeholderdf <- NPS_ITIS_synonyms_df[grepl(NPS_data$Scientific.name[i], NPS_ITIS_synonyms_df$Scientific.Name),] 
+    placeholderdf2 <- NPS_ITIS_synonyms_df[grepl(NPS_data$Scientific.name[i], NPS_ITIS_synonyms_df$SYN.Scientific.Name),]
     NPS_synonyms <- rbind(NPS_synonyms, placeholderdf, placeholderdf2)
 }
 
 
 #use the df of synonyms
-iNat_itis_synonym_matches <- vector(mode="logical", length=0)
-iNat_itis_nonsyn_matches <- vector(mode="logical", length=0)
+iNat_ITIS_synonym_matches <- vector(mode="logical", length=0)
+iNat_ITIS_nonsyn_matches <- vector(mode="logical", length=0)
 
 for (i in 1:length(RG_iNat_data2)) {
-  iNat_itis_synonym_matches[i] <- RG_iNat_data2[i] %in% NPS_synonyms$SYN.Scientific.Name
-  iNat_itis_nonsyn_matches[i] <- RG_iNat_data2[i] %in% NPS_synonyms$Scientific.Name
+  iNat_ITIS_synonym_matches[i] <- RG_iNat_data2[i] %in% NPS_synonyms$SYN.Scientific.Name
+  iNat_ITIS_nonsyn_matches[i] <- RG_iNat_data2[i] %in% NPS_synonyms$Scientific.Name
 }
 
 #6----------------------------------------------------------------------------------------
 #Make a new dataframe with the raw results
-data <- cbind(RG_iNat_data2, RG_iNat_data_iconic$Iconic.taxon.name, iNat_NPS_matches, iNat_NPSsynonym_matches, iNat_itis_synonym_matches, iNat_itis_nonsyn_matches, RG_iNat_data_iconic$Url)
+data <- cbind(RG_iNat_data2, RG_iNat_data_iconic$Iconic.taxon.name, iNat_NPS_matches, iNat_NPSsynonym_matches, iNat_ITIS_synonym_matches, iNat_ITIS_nonsyn_matches, RG_iNat_data_iconic$Url)
 data <- as.data.frame(na.omit(data))
 colnames(data)[1] <- c("Scientific_name")
 colnames(data)[2] <- c("Iconic_taxa")
@@ -147,7 +147,7 @@ for (i in 1:length(table1$Scientific_name)){
   } 
 }
 
-table1 <- table1[order(table1$Iconic_taxa, table1$Scientific_name),]
+#table1 <- table1[order(table1$Iconic_taxa, table1$Scientific_name),]
 table1 <- unique(table1)
 
 
@@ -195,7 +195,7 @@ write.csv(table2, paste(park,"_table2.csv", sep=""))
 #columns: taxa, scientific name, common name, BISON occurrences, invasive
 table3 <- table1[table1$`Match NPSpecies`=="No Match",]
 table3 <- table3[,c(2:1)]
-table3[,"BISON"] <- c("")
+table3[,"Occurences in BISON"] <- c("")
 table3[,"Invasive.Record"] <- c("")
 
 #Invasive record 
@@ -236,9 +236,9 @@ for (i in 1:length(table3$Scientific_name)){
     }
     states <- paste(state.counts$V2, out$states[,'total'])
     states <- paste(states, collapse="; ")
-    table3[i, 'BISON'] <- states
+    table3[i, 'Occurences in BISON'] <- states
   } else {
-    table3[i, 'BISON'] <- "No data available"
+    table3[i, 'Occurences in BISON'] <- "No data available"
   }
 }
 
@@ -292,6 +292,17 @@ barplot(counts3, ylim=c(0,sub_high),col=c("cadetblue1", "seashell","lightsalmon"
 
 dev.off()
 
+#no inset
+pdf(paste(park,"_figure1_no_inset.pdf", sep=""), width=7, height=8)
+
+par(fig=c(0,1,0,1))
+
+barplot(counts2, ylim=c(0,all_high), xlab="Taxa", col=c("cadetblue1", "seashell","lightsalmon"), 
+        ylab="Number of Species")
+
+legend("topleft", inset=c(0.05,0), legend = rownames(counts2) , fill = c("cadetblue1", "seashell","lightsalmon","mediumorchid4"))
+
+dev.off()
 
 
 
