@@ -13,7 +13,7 @@
 #12: Make graph
 
 #1----------------------------------------------------------------------------------------
-#Packages and code to only run once when running multiple reports back to back
+#If running multiple reports. this code only needs to be run once per session. This helps cut down on time.
 setwd("C:/Users/amkat/Desktop/VSFS/compare_iNat_NPS/")
 library(rinat)
 library(taxize)
@@ -32,14 +32,16 @@ sci_names <- read.table('taxonomic_units', sep ="|", header = FALSE, dec =".", f
 sci_names <- sci_names[c('V1','V26')]
 setnames(sci_names, old=c("V1","V26"), new=c("TSN", "Scientific.Name"))
 setnames(syn_nums, old=c("V1","V2", "V3"), new=c("TSN", "SYN.TSN", "Date"))
-NPS_itis_synonyms_df <- merge(syn_nums, sci_names, by='TSN', all.x=T)
-NPS_itis_synonyms_df <- merge(NPS_itis_synonyms_df, sci_names, by.x='SYN.TSN', by.y='TSN', all.x=T)
-NPS_itis_synonyms_df <- NPS_itis_synonyms_df[-3]
-NPS_itis_synonyms_df <- NPS_itis_synonyms_df[,c(1, 4, 2, 3)]
-setnames(NPS_itis_synonyms_df, old=c("SYN.TSN","TSN", "Scientific.Name.x", "Scientific.Name.y"), new=c("TSN", "SYN.TSN", "SYN.Scientific.Name", "Scientific.Name"))
+NPS_ITIS_synonyms_df <- merge(syn_nums, sci_names, by='TSN', all.x=T)
+NPS_ITIS_synonyms_df <- merge(NPS_ITIS_synonyms_df, sci_names, by.x='SYN.TSN', by.y='TSN', all.x=T)
+NPS_ITIS_synonyms_df <- NPS_ITIS_synonyms_df[-3]
+NPS_ITIS_synonyms_df <- NPS_ITIS_synonyms_df[,c(1, 4, 2, 3)]
+setnames(NPS_ITIS_synonyms_df, old=c("SYN.TSN","TSN", "Scientific.Name.x", "Scientific.Name.y"), new=c("TSN", "SYN.TSN", "SYN.Scientific.Name", "Scientific.Name"))
 
+#invaisves list (from Kelsey Cooper)
 inv_list <- read.csv("https://raw.githubusercontent.com/KelseyDCooper/USGS-NPS-App/master/invasives_list.csv")
 
+#abbreviations of state names for BISON entries
 long.name <- c(state.name, "Alberta Canada", "American Samoa", "British Columbia Canada", "Commonwealth of the Northern Mariana Islands",
                "District of Columbia", "Guam", "Manitoba Canada", "New Brunswick Canada", 
                "Newfoundland and Labrador Canada", "Northwest Territories Canada", 
@@ -56,10 +58,13 @@ short.name <- c(state.abb, "AB CAN", "AS", "BC CAN", "CNMI", "DC", "GU", "MB CAN
                 "USVI EEZ", "Wake EEZ")
 all.states <- as.data.frame(cbind(long.name, short.name), stringsAsFactors = FALSE)
 
+
 #2----------------------------------------------------------------------------------------
 #Specify park:
 park <- c("LEWI")
 options(stringsAsFactors = FALSE)
+
+dir.create(paste("./", park, sep=""))
 
 #First, import data
 NPS_data <- read.csv("./NPSpecies_Checklist_LEWI_20190516093957.csv", header=T, skipNul = T, stringsAsFactors=F)
@@ -103,27 +108,28 @@ for (i in 1:length(RG_iNat_data2)){
 #Get synonyms for all of the NPSpecies entries from ITIS
 
 
+
 NPS_synonyms <- data.frame(Scientific.name=character(), Synonym=character(), stringsAsFactors = FALSE)
 
 for (i in 1:length(NPS_data$Scientific.name)) {
-  placeholderdf <- NPS_itis_synonyms_df[grepl(NPS_data$Scientific.name[i], NPS_itis_synonyms_df$Scientific.Name),] 
-  placeholderdf2 <- NPS_itis_synonyms_df[grepl(NPS_data$Scientific.name[i], NPS_itis_synonyms_df$SYN.Scientific.Name),]
+  placeholderdf <- NPS_ITIS_synonyms_df[grepl(NPS_data$Scientific.name[i], NPS_ITIS_synonyms_df$Scientific.Name),] 
+  placeholderdf2 <- NPS_ITIS_synonyms_df[grepl(NPS_data$Scientific.name[i], NPS_ITIS_synonyms_df$SYN.Scientific.Name),]
   NPS_synonyms <- rbind(NPS_synonyms, placeholderdf, placeholderdf2)
 }
 
 
 #use the df of synonyms
-iNat_itis_synonym_matches <- vector(mode="logical", length=0)
-iNat_itis_nonsyn_matches <- vector(mode="logical", length=0)
+iNat_ITIS_synonym_matches <- vector(mode="logical", length=0)
+iNat_ITIS_nonsyn_matches <- vector(mode="logical", length=0)
 
 for (i in 1:length(RG_iNat_data2)) {
-  iNat_itis_synonym_matches[i] <- RG_iNat_data2[i] %in% NPS_synonyms$SYN.Scientific.Name
-  iNat_itis_nonsyn_matches[i] <- RG_iNat_data2[i] %in% NPS_synonyms$Scientific.Name
+  iNat_ITIS_synonym_matches[i] <- RG_iNat_data2[i] %in% NPS_synonyms$SYN.Scientific.Name
+  iNat_ITIS_nonsyn_matches[i] <- RG_iNat_data2[i] %in% NPS_synonyms$Scientific.Name
 }
 
 #6----------------------------------------------------------------------------------------
 #Make a new dataframe with the raw results
-data <- cbind(RG_iNat_data2, RG_iNat_data_iconic$Iconic.taxon.name, iNat_NPS_matches, iNat_NPSsynonym_matches, iNat_itis_synonym_matches, iNat_itis_nonsyn_matches, RG_iNat_data_iconic$Url)
+data <- cbind(RG_iNat_data2, RG_iNat_data_iconic$Iconic.taxon.name, iNat_NPS_matches, iNat_NPSsynonym_matches, iNat_ITIS_synonym_matches, iNat_ITIS_nonsyn_matches, RG_iNat_data_iconic$Url)
 data <- as.data.frame(na.omit(data))
 colnames(data)[1] <- c("Scientific_name")
 colnames(data)[2] <- c("Iconic_taxa")
@@ -131,7 +137,8 @@ colnames(data)[7] <- c("iNaturalist_URL")
 data <- data[order(data$Iconic_taxa, data$Scientific_name),]
 
 #OUtput the raw data into a csv file. 
-write.csv(data, file=paste(park,"_data.csv", sep=""))
+rownames(data) <- c()
+write.csv(data, file=paste("./", park, "/", park,"_data.csv", sep=""))
 data <- data[,-7]
 #7----------------------------------------------------------------------------------------
 #For all the tables, need to remove duplicate species entries
@@ -167,7 +174,7 @@ for (i in 1:length(table1$Scientific_name)){
   } 
 }
 
-table1 <- table1[order(table1$Iconic_taxa, table1$Scientific_name),]
+#table1 <- table1[order(table1$Iconic_taxa, table1$Scientific_name),]
 table1 <- unique(table1)
 
 
@@ -180,7 +187,8 @@ for (i in 1:length(table1$Scientific_name)) {
   }
 }
 
-write.csv(table1, paste(park, "_table1.csv", sep=""))
+rownames(table1) <- c()
+write.csv(table1, paste("./", park, "/", park, "_table1.csv", sep=""))
 
 #9----------------------------------------------------------------------------------------
 #Table 2: All Synonym data and what the taxonomic update is (itis only)
@@ -206,17 +214,19 @@ for (i in 1:length(table2$iNat_entry)) {
   }
 }
 
-write.csv(table2, paste(park,"_table2.csv", sep=""))
+rownames(table2) <- c()
+write.csv(table2, paste("./", park, "/", park,"_table2.csv", sep=""))
 
 #10----------------------------------------------------------------------------------------
 #Table 3: All potentially new species
 #columns: taxa, scientific name, common name, BISON occurrences, invasive
 table3 <- table1[table1$`Match NPSpecies`=="No Match",]
 table3 <- table3[,c(2:1)]
-table3[,"BISON"] <- c("")
+table3[,"Occurences in BISON"] <- c("")
 table3[,"Invasive.Record"] <- c("")
 
 #Invasive record 
+
 for (i in 1:length(table3$Scientific_name)){
   if (table3$Scientific_name[i] %in% inv_list$Scientific.Name){
     table3$Invasive.Record[i] <- c("Yes")
@@ -238,21 +248,23 @@ for (i in 1:length(table3$Scientific_name)){
     }
     states <- paste(state.counts$V2, out$states[,'total'])
     states <- paste(states, collapse="; ")
-    table3[i, 'BISON'] <- states
+    table3[i, 'Occurences in BISON'] <- states
   } else {
-    table3[i, 'BISON'] <- "No data available"
+    table3[i, 'Occurences in BISON'] <- "No data available"
   }
 }
 
 #export table
-write.csv(table3, paste(park, "_table3.csv", sep=""))
+rownames(table3) <- c()
+write.csv(table3, paste("./", park, "/", park, "_table3.csv", sep=""))
 #11----------------------------------------------------------------------------------------
 #Table 4
 table4 <- RG_iNat_not_iconic[,c(5,3,4)]
 table4 <- table4[order(table4$Iconic.taxon.name, table4$Scientific.name),]
 table4 <- unique(table4)
 
-write.csv(table4, paste(park, "_table4.csv", sep=""))
+rownames(table4) <- c()
+write.csv(table4, paste("./", park, "/", park, "_table4.csv", sep=""))
 
 #12----------------------------------------------------------------------------------------
 #Graph
@@ -261,7 +273,7 @@ table1a <- data2[,c(1,2,7)]
 
 counts2 <- table(table1a$`Match NPSpecies`, table1a$Iconic_taxa) 
 counts3 <- counts2[,-4] #delete the plants column from the table
-
+colnames(counts3) <- c("Amph", "Aves", "Mamm", "Rept")
 #give us y axis maximums
 dfcounts <- as.data.frame(counts2)
 amphibiasum <- sum(dfcounts$Freq[dfcounts$Var2 == "Amphibia"])
@@ -273,27 +285,48 @@ reptiliasum <- sum(dfcounts$Freq[dfcounts$Var2 == "Reptilia"])
 all_high <- max(rbind(amphibiasum, avessum, mammaliasum, plantaesum, reptiliasum)) +20
 sub_high <- max(rbind(amphibiasum, avessum, mammaliasum, reptiliasum)) +20
 
+counts2 <- counts2[,c(1,2,3,5,4)]
+
 #Time to graph!
-pdf(paste(park,"_figure1.pdf", sep=""), width=7, height=8)
+pdf(paste("./", park, "/", park,"_figure1.pdf", sep=""), width=7, height=8)
 
 par(fig=c(0,1,0,1))
+#par(mar=c(5.1, 4.1, 4.1, 8.1), xpd=TRUE)
+
 barplot(counts2, ylim=c(0,all_high), xlab="Taxa", col=c("cadetblue1", "seashell","lightsalmon"), 
         ylab="Number of Species")
-legend("topright", inset=0.02, legend = rownames(counts2) , fill = c("cadetblue1", "seashell","lightsalmon","mediumorchid4"))
 
+legend("top", inset=0.02, legend = rownames(counts2) , fill = c("cadetblue1", "seashell","lightsalmon","mediumorchid4"))
+
+#par(fig=c(0.75,1,0.75,1), mar=c(1,1,1,1), new=TRUE)
 par(fig=c(0.1,0.5,0.5,1), new=TRUE)
 barplot(counts3, ylim=c(0,sub_high),col=c("cadetblue1", "seashell","lightsalmon", "mediumorchid4"), cex.names=0.45)
 
+
+
 dev.off()
+
+#no inset
+pdf(paste("./", park, "/", park,"_figure1_no_inset.pdf", sep=""), width=7, height=8)
+
+par(fig=c(0,1,0,1))
+
+barplot(counts2, ylim=c(0,all_high), xlab="Taxa", col=c("cadetblue1", "seashell","lightsalmon"), 
+        ylab="Number of Species")
+
+legend("topleft", inset=c(0.02), legend = rownames(counts2) , fill = c("cadetblue1", "seashell","lightsalmon","mediumorchid4"))
+
+dev.off()
+
 
 #13---------------------------------------------------------------------------------
 #Remove tables/variables when running multiple reports in a row
 rm(data, data2, dfcounts, iNat_data, NPS_data, NPS_synonyms, placeholderdf, placeholderdf2, 
    RG_iNat_data, RG_iNat_data_iconic, RG_iNat_not_iconic, table1, table1a, table2, table3,
-   table4, all_high, amphibiasum, avessum, counts2, counts3, i, iNat_itis_nonsyn_matches, 
+   table4, all_high, amphibiasum, avessum, counts2, counts3, i, iNat_ITIS_nonsyn_matches, 
    iNat_NPSsynonym_matches, iNat_NPS_matches, iNat_NPSsynonym_matches, mammaliasum,
    NPS_data2, NPS_data3, park, plantaesum, reptiliasum, RG_iNat_data2, sub_high, 
-   iNat_itis_synonym_matches, out, state.counts, k, states)
+   iNat_ITIS_synonym_matches, out, state.counts, k, states)
 
 
 
