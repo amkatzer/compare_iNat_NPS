@@ -273,19 +273,21 @@ reptiliasum <- sum(dfcounts$Freq[dfcounts$Var2 == "Reptilia"])
 all_high <- max(rbind(amphibiasum, avessum, mammaliasum, plantaesum, reptiliasum)) +20
 sub_high <- max(rbind(amphibiasum, avessum, mammaliasum, reptiliasum)) +20
 
+counts2 <- counts2[,c(1,2,3,5,4)]
+
 #Time to graph!
 pdf(paste(park,"_figure1.pdf", sep=""), width=7, height=8)
 
-#par(fig=c(0,1,0,1))
-par(mar=c(5.1, 4.1, 4.1, 8.1), xpd=TRUE)
+par(fig=c(0,1,0,1))
+#par(mar=c(5.1, 4.1, 4.1, 8.1), xpd=TRUE)
 
 barplot(counts2, ylim=c(0,all_high), xlab="Taxa", col=c("cadetblue1", "seashell","lightsalmon"), 
         ylab="Number of Species")
 
-legend("right", inset=c(-0.35,0), legend = rownames(counts2) , fill = c("cadetblue1", "seashell","lightsalmon","mediumorchid4"))
+legend("top", inset=0.02, legend = rownames(counts2) , fill = c("cadetblue1", "seashell","lightsalmon","mediumorchid4"))
 
-par(fig=c(0.75,1,0.75,1), mar=c(1,1,1,1), new=TRUE)
-#par(fig=c(0.1,0.5,0.5,1), new=TRUE)
+#par(fig=c(0.75,1,0.75,1), mar=c(1,1,1,1), new=TRUE)
+par(fig=c(0.1,0.5,0.5,1), new=TRUE)
 barplot(counts3, ylim=c(0,sub_high),col=c("cadetblue1", "seashell","lightsalmon", "mediumorchid4"), cex.names=0.45)
 
 
@@ -300,7 +302,7 @@ par(fig=c(0,1,0,1))
 barplot(counts2, ylim=c(0,all_high), xlab="Taxa", col=c("cadetblue1", "seashell","lightsalmon"), 
         ylab="Number of Species")
 
-legend("topleft", inset=c(0.05,0), legend = rownames(counts2) , fill = c("cadetblue1", "seashell","lightsalmon","mediumorchid4"))
+legend("topleft", inset=c(0.02), legend = rownames(counts2) , fill = c("cadetblue1", "seashell","lightsalmon","mediumorchid4"))
 
 dev.off()
 
