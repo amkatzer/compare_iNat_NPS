@@ -3,14 +3,24 @@
 library(stringr) #use str_extract from this package
 
 table3 <- read.csv("ACAD_table3.csv", stringsAsFactors = FALSE)
-
 park_states <- read.csv("nps_boundary.csv", stringsAsFactors = FALSE)
+
+BISON_in_state <- rep(NA, length(table3$Scientific_name))
+speciesundercutoff <- data.frame(table3$Scientific_name, table3$Invasive.Record, BISON_in_state, stringsAsFactors = FALSE)
+
+cutoff <- 50 #put in the cutoff amount that you want for entries in the state
 
 for (i in 1:length(table3$Scientific_name)){
   numberinBISON <- unlist(strsplit(table3$Occurences.in.BISON[i], split=";")) #splits up the BISON occurrences from table 3
-  #tabnumberinBISON <- data.frame(unlist(strsplit(numberinBISON, split=" [0-9]+$")), unlist(strsplit(numberinBISON, split=" [0-9]+$"))[2])
+  numberinBISON <- gsub("[[:space:]]", "", numberinBISON) #remove white spaces
   parkstate <- park_states$STATE[park_states$UNIT_CODE == "ACAD"] #get park state from the database
-  statedata <- str_extract(numberinBISON[pmatch(parkstate, numberinBISON)==TRUE], "[0-9]+$") #struggling to get a match between the park state and BISON
+  statedata <- as.integer(str_extract(numberinBISON[pmatch(parkstate, numberinBISON)], "[0-9]+$")) 
+  if (statedata <= cutoff) {
+    speciesundercutoff$BISON_in_state[i] <- statedata
+  }
 }
+
+speciesundercutoff <- na.omit(speciesundercutoff[speciesundercutoff$BISON_in_state != "NA",])
+
 
 
