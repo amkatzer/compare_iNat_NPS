@@ -7,7 +7,9 @@ parkname <- "ACAD"
 park_states <- read.csv("nps_boundary.csv", stringsAsFactors = FALSE)
 
 BISON_in_state <- rep(NA, length(table3$Scientific_name))
-speciesundercutoff <- data.frame(table3$Scientific_name, table3$Invasive.Record, BISON_in_state, stringsAsFactors = FALSE)
+indivdparkstate <- rep(NA, length(table3$Scientific_name))
+speciesundercutoff <- data.frame(table3$Scientific_name, table3$Invasive.Record, BISON_in_state, 
+                                 indivdparkstate, table3$Occurences.in.BISON, stringsAsFactors = FALSE)
 
 cutoff <- 50 #put in the cutoff amount that you want for entries in the state
 
@@ -18,6 +20,7 @@ for (i in 1:length(table3$Scientific_name)){
   statedata <- as.integer(str_extract(numberinBISON[pmatch(parkstate, numberinBISON)], "[0-9]+$")) 
   if (statedata <= cutoff) {
     speciesundercutoff$BISON_in_state[i] <- statedata
+    speciesundercutoff$indivdparkstate[i] <- parkstate
   }
 }
 
